@@ -8,5 +8,21 @@
       <li><%= link_to "Principe", :controller => "pages", :action => "principe" %></li>
       <li><%= link_to "Galerie", :controller => "pages", :action => "galerie" %></li>      
     </ul>
+
+
+<div class="dropdown pull-right">
+  <button class="btn dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li><%= link_to 'Gestion des spectacles', spectacles_path %></li>
+    <li><%= link_to 'Gestion des lieux', lieus_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to 'Nouveau spectacle', new_spectacle_path %></li>
+    <li><%= link_to 'Nouveau lieu', new_lieu_path %></li>
+    <li><%= link_to 'Nouvel Evadé', new_user_path %></li>
+  </ul>
+</div>
   </div>
+
 </div>
