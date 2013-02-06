@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>EvadesWebSite</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<%= render "standard_before_body" %>
+<%= render "application/nav_bar" %>	
 <%= bootstrap_flash %>
 <%= yield %>
-
-</body>
-</html>
+<%= render "standard_after_body" %>
