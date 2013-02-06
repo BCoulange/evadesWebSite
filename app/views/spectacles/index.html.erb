@@ -14,7 +14,7 @@
   <tr>
     <td><%= spectacle.titre %></td>
     <td><%= spectacle.message %></td>
-    <td><%= spectacle.date %></td>
+    <td><%= spectacle.start_time %></td>
     <td><%= link_to 'Show', spectacle %></td>
     <td><%= link_to 'Edit', edit_spectacle_path(spectacle) %></td>
     <td><%= link_to 'Destroy', spectacle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -23,5 +23,8 @@
 </table>
 
 <br />
+
+
+
 
 <%= link_to 'New Spectacle', new_spectacle_path %>
