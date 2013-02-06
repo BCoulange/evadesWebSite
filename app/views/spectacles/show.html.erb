@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Titre:</b>
+  <%= @spectacle.titre %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @spectacle.message %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @spectacle.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_spectacle_path(@spectacle) %> |
+<%= link_to 'Back', spectacles_path %>

@@ -1,0 +1,27 @@
+<h1>Listing spectacles</h1>
+
+<table>
+  <tr>
+    <th>Titre</th>
+    <th>Message</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @spectacles.each do |spectacle| %>
+  <tr>
+    <td><%= spectacle.titre %></td>
+    <td><%= spectacle.message %></td>
+    <td><%= spectacle.date %></td>
+    <td><%= link_to 'Show', spectacle %></td>
+    <td><%= link_to 'Edit', edit_spectacle_path(spectacle) %></td>
+    <td><%= link_to 'Destroy', spectacle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Spectacle', new_spectacle_path %>
