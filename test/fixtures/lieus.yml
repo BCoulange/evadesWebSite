@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nom: MyString
+  adresse: MyString
+  gMapUrl: MyString
+
+two:
+  nom: MyString
+  adresse: MyString
+  gMapUrl: MyString

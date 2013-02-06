@@ -1,4 +1,7 @@
 EvadesWebSite::Application.routes.draw do
+  resources :lieus
+
+
   resources :spectacles
 
 
