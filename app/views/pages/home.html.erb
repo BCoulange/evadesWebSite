@@ -8,13 +8,9 @@
   		<li class="span4">
     		<div class="thumbnail">
     				<div class="well"></div>
-            <%  @spectacles.sort_by{|s| s.start_time}.each do |s| %>
-              <% next unless s.start_time-DateTime.now>0 %>
-                <h3><%= s.titre %></h3>
-                <h4><%=  s.start_time.mday.to_s+"/"+s.start_time.mon.to_s+"/"+s.start_time.year.to_s      %></h4>
-      				<p><%= s.message %></p>
-              <% next unless nil %>
-            <% end %>
+                <h3><%= @prochain_s.titre %></h3>
+                <h4><%=  @prochain_s.start_time.mday.to_s+"/"+@prochain_s.start_time.mon.to_s+"/"+@prochain_s.start_time.year.to_s      %></h4>
+      				<p><%= @prochain_s.message %></p>
     		</div>
   		</li>
   		<li class="span4">
