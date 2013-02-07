@@ -6,8 +6,10 @@ EvadesWebSite::Application.routes.draw do
   get "pages/principe"
   get "pages/galerie"
 
-  get "photos/index"
 
+  get "photos/index"  
+  match "/photos/" => "photos#index"
+  match "/photos/:id" => "photos#show"
 
   resources :lieus
 

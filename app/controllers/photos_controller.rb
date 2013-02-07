@@ -5,6 +5,10 @@ before_filter :get_flickr
     	@photo_sets = flickr.photosets.getList(:user_id => ENV["FLICKR_EVADES_ID"])
 	end
 
+	def show
+		@set=flickr.photosets.getInfo(:photoset_id => params[:id])
+	end
+
 	def get_flickr
     	FlickRaw.api_key = ENV["FLICKR_API_KEY"]
     	FlickRaw.shared_secret = ENV["FLICKR_SECRET"]

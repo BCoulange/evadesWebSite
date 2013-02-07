@@ -4,7 +4,7 @@
 	<% @photo_sets.each do |set| %>
 
 		 <ul class="thumbnails">
-		 	<%= link_to "Galerie", :controller => "photos", :action => "show" do %>
+		 	<%= link_to("#{set.id}", :id => "#{set.id}") do %>
 		 <h4><%=set.title%></h4>
 		 <% flickr.photosets.getPhotos(:photoset_id => set.id).photo.sample(2).each do |p| %>
   			<li class="span4">
