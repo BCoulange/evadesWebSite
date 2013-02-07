@@ -5,8 +5,6 @@ EvadesWebSite::Application.routes.draw do
 
   get "pages/contact"
 
-  get "pages/qui"
-
   get "pages/principe"
 
   get "pages/galerie"
