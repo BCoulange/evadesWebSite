@@ -14,6 +14,7 @@ EvadesWebSite::Application.routes.draw do
   match "/photos/" => "photos#index", :as => :photos
   match "/photos/:id" => "photos#show", :as => :show_photos
 
+
   resources :lieus, :as => :lieus
 
 
