@@ -2,12 +2,12 @@ EvadesWebSite::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   get "pages/home"
-
   get "pages/contact"
-
   get "pages/principe"
-
   get "pages/galerie"
+
+  get "photos/index"
+
 
   resources :lieus
 
