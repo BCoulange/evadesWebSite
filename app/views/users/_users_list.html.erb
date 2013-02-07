@@ -1,0 +1,13 @@
+  <tr>
+    <td><%= user.prenom %></td>
+    <td><%= user.nom %></td>
+    <td><%= user.email %></td>
+    <td><%= user.surnom %></td>
+    <td><%= user.spectacles.count %></td>
+    <td>
+      <div class="btn-group">
+  <button class="btn"><%= link_to 'Voir', user %></button>
+  <button class="btn"><%= link_to 'Edit', edit_user_path(user) %></button>
+  <button class="btn"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    </div>
+</td>     </tr>

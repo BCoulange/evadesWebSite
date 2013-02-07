@@ -1,4 +1,7 @@
 class SpectaclesController < ApplicationController
+
+before_filter :get_users
+
   # GET /spectacles
   # GET /spectacles.json
   def index
@@ -80,4 +83,9 @@ class SpectaclesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def get_users
+    @users = User.find(:all, :order => "surnom")
+  end
+
 end

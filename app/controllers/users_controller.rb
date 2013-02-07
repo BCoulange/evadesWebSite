@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :get_spectacles
+
   # GET /users
   # GET /users.json
   def index
@@ -35,7 +38,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    @spectacles = Spectacle.find(:all, :order => "start_time")
+
   end
 
   # POST /users
@@ -81,4 +84,10 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def get_spectacles
+    @spectacles = Spectacle.find(:all, :order => "start_time")
+  end
+
+
 end

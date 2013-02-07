@@ -26,6 +26,11 @@
     <%= f.label :date %><br />
     <%= datetime_select :spectacle, :start_time %>
   </div>
+
+  <p>Evadés :</p><br />
+  <%= collection_select(:spectacle, :user_ids, @users, :id, :surnom, {:prompt => " "}, { :multiple => true })%>
+  <p>
+
   <div class="actions">
     <%= f.submit %>
   </div>
