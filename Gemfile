@@ -42,8 +42,12 @@ gem 'jquery-rails'
 
 gem "simple_calendar", "~> 0.1.1"
 
+# pour un éditeur de texte un peu meilleur
 gem "ckeditor"
 gem "paperclip"
+
+# pour gérer les Gmaps
+gem 'gmaps4rails'
 
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'

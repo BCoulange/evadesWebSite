@@ -16,14 +16,21 @@
     <%= f.text_field :nom %>
   </div>
   <div class="field">
-    <%= f.label :adresse %><br />
-    <%= f.text_field :adresse %>
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
   </div>
   <div class="field">
-    <%= f.label :gMapUrl %><br />
-    <%= f.text_field :gMapUrl %>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
   </div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+

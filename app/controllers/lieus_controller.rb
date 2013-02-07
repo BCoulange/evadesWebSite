@@ -3,6 +3,7 @@ class LieusController < ApplicationController
   # GET /lieus.json
   def index
     @lieus = Lieu.all
+    @jsonGmaps = Lieu.all.to_gmaps4rails
 
     respond_to do |format|
       format.html # index.html.erb
