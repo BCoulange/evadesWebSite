@@ -1,0 +1,6 @@
+<h5>Adresse</h5>
+<%=[@lieu.street,@lieu.city].join(" ") %>
+
+
+<%= gmaps4rails(@lieu.to_gmaps4rails) %>
+

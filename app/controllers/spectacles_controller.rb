@@ -17,6 +17,7 @@ before_filter :get_users
   # GET /spectacles/1.json
   def show
     @spectacle = Spectacle.find(params[:id])
+    @lieu = @spectacle.lieu
 
     respond_to do |format|
       format.html # show.html.erb
