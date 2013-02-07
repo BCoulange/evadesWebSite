@@ -8,12 +8,14 @@ class PagesController < ApplicationController
   def contact
   end
 
-  def qui
-  end
 
   def principe
   end
 
   def galerie
+    FlickRaw.api_key = ENV["FLICKR_API_KEY"]
+    FlickRaw.shared_secret = ENV["FLICKR_SECRET"]
+    flickr = FlickRaw::Flickr.new
+    @photo_sets = flickr.photosets.getList(:user_id => ENV["FLICKR_EVADES_ID"])
   end
 end

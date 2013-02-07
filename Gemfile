@@ -49,6 +49,10 @@ gem "paperclip"
 # pour gérer les Gmaps
 gem 'gmaps4rails'
 
+# gallerie
+gem 'figaro'
+gem 'flickraw'
+
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
 gem 'font-awesome-rails'

@@ -1,2 +1,16 @@
 <h1>Pages#galerie</h1>
 <p>Find me in app/views/pages/galerie.html.erb</p>
+
+
+<div id="well">
+    <% @photo_sets.each do |set| %>
+    <h2><%=set.title%></h2>
+   	<% flickr.photosets.getPhotos(:photoset_id => set.id).photo.each do |p| %>
+   	<p>	<%= p.title %></p>
+	<%= image_tag "http://farm#{p.farm}.staticflickr.com/#{p.server}/#{p.id}_#{p.secret}.jpg", :class => "brand"%>
+   	
+   	<% end %>
+     <% end %>
+</div>
+
+
