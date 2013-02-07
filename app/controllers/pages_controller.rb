@@ -4,6 +4,11 @@ class PagesController < ApplicationController
     render :layout => 'homepage'
   end
 
+  def index
+    redirect_to :home
+  end
+
+
   def contact
   end
 
