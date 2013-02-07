@@ -46,3 +46,5 @@ gem "simple_calendar", "~> 0.1.1"
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
 gem 'font-awesome-rails'
+
+gem 'devise'
