@@ -34,6 +34,10 @@ GEM
       rails (~> 3.1)
     bootstrap_form (0.2.3)
     builder (3.0.4)
+    ckeditor (4.0.2)
+      mime-types
+      orm_adapter
+    cocaine (0.4.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -68,6 +72,13 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.20.1)
     multi_json (1.5.0)
+    orm_adapter (0.4.0)
+    paperclip (3.4.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.4.0)
+      mime-types
     polyglot (0.3.3)
     rack (1.4.4)
     rack-cache (1.2)
@@ -134,9 +145,11 @@ PLATFORMS
 DEPENDENCIES
   best_in_place
   bootstrap_form
+  ckeditor
   coffee-rails (~> 3.2.1)
   font-awesome-rails
   jquery-rails
+  paperclip
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
   simple_calendar (~> 0.1.1)

@@ -12,25 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :titre %><br />
+    <%= f.label :titre %>
     <%= f.text_field :titre %>
   </div>
   <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_area :message %>
+    <%= f.label :message %>
+    <%= f.cktext_area :message, :ckeditor => {:language => "fr", :toolbar => "mini"}%>
   </div>
   <div class="field">  
+    <%= f.label :lieu %>
 <%= f.select(:lieu_id,Lieu.all.map{|l| [l.nom,l.id]}) %>
   </div>
   <div class="field">
-    <%= f.label :date %><br />
+    <%= f.label :date %>
     <%= datetime_select :spectacle, :start_time %>
   </div>
 
-  <p>Evadés :</p><br />
-  <%= collection_select(:spectacle, :user_ids, @users, :id, :surnom, {:prompt => " "}, { :multiple => true })%>
-  <p>
 
+  <div class="field">
+  <%= f.label :evades %>
+  <%= collection_select(:spectacle, :user_ids, @users, :id, :surnom, {:prompt => " "}, { :multiple => true })%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

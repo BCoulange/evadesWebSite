@@ -13,8 +13,8 @@
                 <h3><%= s.titre %></h3>
                 <h4><%=  s.start_time.mday.to_s+"/"+s.start_time.mon.to_s+"/"+s.start_time.year.to_s      %></h4>
       				<p><%= s.message %></p>
-              <% next unless 1 %>
-              <% end %>
+              <% next unless nil %>
+            <% end %>
     		</div>
   		</li>
   		<li class="span4">

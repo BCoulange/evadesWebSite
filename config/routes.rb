@@ -1,4 +1,6 @@
 EvadesWebSite::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   get "pages/home"
 
   get "pages/contact"
@@ -17,6 +19,7 @@ EvadesWebSite::Application.routes.draw do
 
   resources :users
 
+mount Ckeditor::Engine => "/ckeditor"
 
   root :to => "pages#home"
 

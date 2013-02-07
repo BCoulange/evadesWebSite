@@ -42,6 +42,8 @@ gem 'jquery-rails'
 
 gem "simple_calendar", "~> 0.1.1"
 
+gem "ckeditor"
+gem "paperclip"
 
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'

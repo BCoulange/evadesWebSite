@@ -15,4 +15,5 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require best_in_place
+//= require ckeditor/init
 //= require_tree .
