@@ -1,25 +1,14 @@
 <h1>Listing spectacles</h1>
 
 <table class="table table-striped table-bordered">
-  <tr>
-    <th>Titre</th>
-    <th>Date</th>
-    <th></th>
-  </tr>
 
-<% @spectacles.each do |spectacle| %>
-  <tr>
-    <td><%= spectacle.titre %></td>
-    <td><%= spectacle.start_time %></td>
-    <td>
-      <div class="btn-group">
-  <button class="btn"><%= link_to 'Voir', spectacle %></button>
-  <button class="btn"><%= link_to 'Edit', edit_spectacle_path(spectacle) %></button>
-  <button class="btn"><%= link_to 'Destroy', spectacle, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-    </div>
-    </td>
-  </tr>
-<% end %>
+    <thead>
+<%= render "spectacles_list_head" %>
+  </thead>
+<tbody>
+<%= render :partial=>"spectacles_list", :collection =>@spectacles, :as => :spectacle %>
+</tbody>
+
 </table>
 
 <br />

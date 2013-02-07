@@ -1,0 +1,12 @@
+  <tr>
+    <td><%= spectacle.titre %></td>
+    <td><%= spectacle.start_time %></td>
+    <td>
+      <div class="btn-group">
+  <button class="btn"><%= link_to 'Voir', spectacle %></button>
+  <button class="btn"><%= link_to 'Edit', edit_spectacle_path(spectacle) %></button>
+  <button class="btn"><%= link_to 'Destroy', spectacle, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    </div>
+    </td>
+  </tr>
+
