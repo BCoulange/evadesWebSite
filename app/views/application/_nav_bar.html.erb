@@ -10,7 +10,7 @@
       <li><%= link_to "Galerie", photos_path %></li>      
     </ul>
 
-
+<% if user_signed_in? %>
 <div class="dropdown pull-right">
   <button class="btn dropdown-toggle" data-toggle="dropdown">
     <span class="caret"></span>
@@ -25,6 +25,7 @@
     <li><%= link_to 'Nouvel Evadé', new_user_path %></li>
   </ul>
 </div>
+<%end%>
   </div>
 
 </div>
