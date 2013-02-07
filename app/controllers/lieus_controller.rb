@@ -1,4 +1,7 @@
 class LieusController < ApplicationController
+
+    before_filter :authenticate_user!, :except => [:index, :show]
+     
   # GET /lieus
   # GET /lieus.json
   def index

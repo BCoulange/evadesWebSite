@@ -2,12 +2,12 @@
   <div class="navbar-inner">
     <%= image_tag "top.png", :class => "brand"%>
     <ul class="nav">
-      <li><%= link_to "home", :controller => "pages", :action => "home"%></li>
-      <li><%= link_to "Contact", :controller => "pages", :action => "contact"%></li>
-      <li><%= link_to "Qui sommes nous?", :controller => "users", :action => "index"%></li>
-      <li><%= link_to "Nos planques", :controller => "lieus", :action => "index"%></li>
-      <li><%= link_to "Principe", :controller => "pages", :action => "principe" %></li>
-      <li><%= link_to "Galerie", :controller => "photos", :action => "index" %></li>      
+      <li><%= link_to "home", home_page_path %></li>
+      <li><%= link_to "Contact", contact_page_path %></li>
+      <li><%= link_to "Qui sommes nous?", users_path%></li>
+      <li><%= link_to "Nos planques", lieus_path %></li>
+      <li><%= link_to "Principe", principe_page_path %></li>
+      <li><%= link_to "Galerie", photos_path %></li>      
     </ul>
 
 

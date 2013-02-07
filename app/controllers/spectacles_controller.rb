@@ -1,5 +1,7 @@
 class SpectaclesController < ApplicationController
 
+before_filter :authenticate_user!, :except => [:index, :show]
+
 before_filter :get_users
 
   # GET /spectacles

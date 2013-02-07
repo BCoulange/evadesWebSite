@@ -53,6 +53,10 @@ gem 'gmaps4rails'
 gem 'figaro'
 gem 'flickraw'
 
+# authentification des utilisateurs
+gem 'devise'
+
+
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
 gem 'font-awesome-rails'

@@ -1,23 +1,26 @@
 EvadesWebSite::Application.routes.draw do
+  devise_for :users
+
   mount Ckeditor::Engine => '/ckeditor'
 
-  get "pages/home"
-  get "pages/contact"
-  get "pages/principe"
-  get "pages/galerie"
+  match 'pages/home', :to => 'pages#home', :as => :home_page
+  match 'pages/contact', :to => 'pages#contact', :as => :contact_page
+  match 'pages/principe', :to => 'pages#principe', :as => :principe_page
+  match 'pages/galerie', :to => 'pages#galerie', :as => :galerie_page
+
 
 
   get "photos/index"  
-  match "/photos/" => "photos#index"
-  match "/photos/:id" => "photos#show"
+  match "/photos/" => "photos#index", :as => :photos
+  match "/photos/:id" => "photos#show", :as => :show_photos
 
-  resources :lieus
+  resources :lieus, :as => :lieus
 
 
   resources :spectacles
 
 
-  resources :users
+  resources :users, :as => :users
 
 mount Ckeditor::Engine => "/ckeditor"
 

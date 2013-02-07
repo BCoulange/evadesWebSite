@@ -8,9 +8,11 @@
   		<li class="span4">
     		<div class="thumbnail">
     				<div class="well"></div>
+            <% unless @prochain_s.nil? %>
                 <h3><%= @prochain_s.titre %></h3>
                 <h4><%=  @prochain_s.start_time.mday.to_s+"/"+@prochain_s.start_time.mon.to_s+"/"+@prochain_s.start_time.year.to_s      %></h4>
       				<p><%= @prochain_s.message %></p>
+            <% end %>
     		</div>
   		</li>
   		<li class="span4">
