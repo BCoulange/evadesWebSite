@@ -89,6 +89,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.4.0)
       mime-types
+    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.4)
     rack-cache (1.2)
@@ -166,6 +167,7 @@ DEPENDENCIES
   gmaps4rails
   jquery-rails
   paperclip
+  pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
   simple_calendar (~> 0.1.1)
