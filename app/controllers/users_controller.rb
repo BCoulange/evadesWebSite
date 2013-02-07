@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @spectacles = Spectacle.find(:all, :order => "start_time")
   end
 
   # POST /users
