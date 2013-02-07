@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @spectacles=Spectacle.all
     render :layout => 'homepage'
   end
 

@@ -8,8 +8,13 @@
   		<li class="span4">
     		<div class="thumbnail">
     				<div class="well"></div>
-      				<h3>Prochain Spectacle!</h3>
-      				<p>Thumbnail caption...</p>
+            <%  @spectacles.sort_by{|s| s.start_time}.each do |s| %>
+              <% next unless s.start_time-DateTime.now>0 %>
+                <h3><%= s.titre %></h3>
+                <h4><%=  s.start_time.mday.to_s+"/"+s.start_time.mon.to_s+"/"+s.start_time.year.to_s      %></h4>
+      				<p><%= s.message %></p>
+              <% next unless 1 %>
+              <% end %>
     		</div>
   		</li>
   		<li class="span4">
