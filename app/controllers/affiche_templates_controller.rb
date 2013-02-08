@@ -3,6 +3,14 @@ class AfficheTemplatesController < ApplicationController
   # GET /affiche_templates.json
 
 before_filter :authenticate_user!
+before_filter :findATemplate, :except => [:index, :new, :create]
+
+require 'RMagick'                                       # Pour faire des choses sur les images (ImageMagick)
+include Magick
+
+  def findATemplate
+    @affiche_template = AfficheTemplate.find(params[:id])
+  end
 
   def index
     @affiche_templates = AfficheTemplate.all
@@ -16,7 +24,6 @@ before_filter :authenticate_user!
   # GET /affiche_templates/1
   # GET /affiche_templates/1.json
   def show
-    @affiche_template = AfficheTemplate.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +44,7 @@ before_filter :authenticate_user!
 
   # GET /affiche_templates/1/edit
   def edit
-    @affiche_template = AfficheTemplate.find(params[:id])
+ 
   end
 
   # POST /affiche_templates
@@ -59,7 +66,6 @@ before_filter :authenticate_user!
   # PUT /affiche_templates/1
   # PUT /affiche_templates/1.json
   def update
-    @affiche_template = AfficheTemplate.find(params[:id])
 
     respond_to do |format|
       if @affiche_template.update_attributes(params[:affiche_template])
@@ -75,7 +81,6 @@ before_filter :authenticate_user!
   # DELETE /affiche_templates/1
   # DELETE /affiche_templates/1.json
   def destroy
-    @affiche_template = AfficheTemplate.find(params[:id])
     @affiche_template.destroy
 
     respond_to do |format|
@@ -83,4 +88,90 @@ before_filter :authenticate_user!
       format.json { head :no_content }
     end
   end
+
+
+def showFond
+
+  img = ImageList.new("Public"+@affiche_template.fond.url.split("?")[0])
+  txt = Draw.new
+    img.annotate(txt, 0,0,0,0, "In ur Railz, annotatin ur picz."){
+    txt.gravity = Magick::SouthGravity
+    txt.pointsize = 25
+    txt.stroke = '#000000'
+    txt.fill = '#ffffff'
+    txt.font_weight = Magick::BoldWeight
+    }
+    img.format = 'jpeg'
+    send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
+#  redirect_to :back
+end
+
+  def lolcat
+    img = ImageList.new('public/computer-cat.jpg')
+    txt = Draw.new
+    img.annotate(txt, 0,0,0,0, "In ur Railz, annotatin ur picz."){
+    txt.gravity = Magick::SouthGravity
+    txt.pointsize = 25
+    txt.stroke = '#000000'
+    txt.fill = '#ffffff'
+    txt.font_weight = Magick::BoldWeight
+    }
+    img.format = 'jpeg'
+    send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
+  end
+
+
+def genAffiche(fond,teaser,teaser_texte,dateheure,dateheure_texte,infosLieu,infoLieu_texte,affiche)
+  img = ImageList.new(fond)
+  txt = Draw.new
+  txt2 = Draw.new
+  txt3 = Draw.new
+
+  yoffset = teaser[:yoffset]
+  wrap_intelligent(teaser_texte, teaser[:lar]).split('\n').each do |row|
+    img.annotate(txt, teaser[:width],teaser[:heigh],teaser[:xoffset],teaser[:yoffset], row){
+      txt.gravity = CenterGravity
+      txt.pointsize = 150
+      txt.stroke = '#000000'
+      txt.fill = '#ffffff'
+      txt.font_weight = Magick::BoldWeight
+    }
+    yoffset+=20
+  end
+
+  img.annotate(txt2, dateheure[:width],dateheure[:heigh],dateheure[:xoffset],dateheure[:yoffset], dateheure_texte){
+    txt2.gravity = CenterGravity
+    txt2.pointsize = 400
+    txt2.stroke = '#000000'
+    txt2.fill = '#ffffff'
+    txt2.font_weight = Magick::BoldWeight
+  }
+
+  img.annotate(txt3, infosLieu[:width],infosLieu[:heigh],infosLieu[:xoffset],infosLieu[:yoffset], infoLieu_texte){
+    txt3.pointsize = 120
+    txt3.stroke = '#000000'
+    txt3.fill = '#ffffff'
+    txt3.font_weight = Magick::BoldWeight
+  }
+
+  img.format = 'jpeg'
+  img.write(affiche)
+  img.destroy!
+
+end
+
+
+
+
+
+private
+# remplacer le wrap par @comment_text.cool_string_function( 56 )
+
+
+
+
+
+
+
+
 end
