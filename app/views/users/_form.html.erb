@@ -23,7 +23,10 @@
     <%= f.label :surnom %><br />
     <%= f.text_field :surnom %>
   </div>
-
+  <div class="field">
+    <%= f.label :avatar %><br />
+  <%= form.file_field :avatar %>
+</div>
   <p>Spectacles :</p><br />
   <%= collection_select(:user, :spectacle_ids, @spectacles, :id, :titre, {:prompt => " "}, { :multiple => true })%>
   <p>

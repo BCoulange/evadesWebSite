@@ -25,6 +25,8 @@
     <li><%= link_to 'Nouvel Evadé', new_user_path %></li>
   </ul>
 </div>
+<% else %>
+  <%= link_to "Se connecter", "login" %>
 <%end%>
   </div>
 
