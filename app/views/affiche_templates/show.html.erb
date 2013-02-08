@@ -1,10 +1,29 @@
 <h1><%= @affiche_template.nom %></h1>
 
+
+
 <span class="row">
   <span class="span6">
     <%= image_tag @affiche_template.fond.url(:homepage) %>
   </span>
   <span class="span6">
+    <h3> Générateur d'affiches </h3>
+      <div class="field">
+    <%= form_tag(showFond_affiche_template_path(@affiche_template), :method => :get) do %>
+      <%= label_tag "Date du spectacle" %>
+      <%= text_field_tag "texte" %>
+    </div>
+    <div class="field">
+      <%= submit_tag "Générer!"%>
+    </div>
+    <% end %>
+  </span>
+
+</span>
+<span class="row">
+
+  <span class="span12">
+    <h4> Infos </h4>
     <ul>
       <li>Teaser width: <%= @affiche_template.teaserwidth %></li>
       <li>Teaser heigh: <%= @affiche_template.teaserheigh %></li>
@@ -21,6 +40,7 @@
     </ul>
   </span>
 </span>
+
 
 <span class="row">
 <span class="span12">

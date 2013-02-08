@@ -93,14 +93,16 @@ include Magick
 def showFond
 
   img = ImageList.new("Public"+@affiche_template.fond.url.split("?")[0])
+  # Ajout de la date et de l'heure
   txt = Draw.new
-    img.annotate(txt, 0,0,0,0, "In ur Railz, annotatin ur picz."){
-    txt.gravity = Magick::SouthGravity
-    txt.pointsize = 25
+  img.annotate(txt,@affiche_template.dhwidth,@affiche_template.dhheigh,@affiche_template.dhx,@affiche_template.dhy, params[:texte]){
+    txt.gravity = CenterGravity
+    txt.pointsize = 400
     txt.stroke = '#000000'
     txt.fill = '#ffffff'
     txt.font_weight = Magick::BoldWeight
-    }
+  }
+
     img.format = 'jpeg'
     send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
 #  redirect_to :back
