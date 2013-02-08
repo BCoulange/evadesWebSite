@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AfficheTemplatesController < ApplicationController
   # GET /affiche_templates
   # GET /affiche_templates.json
@@ -92,15 +93,31 @@ include Magick
 
 def showFond
 
+  @spectacle=Spectacle.find_by_titre(params[:Spectacle])
+  frenchWeekdays = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
+  frenchMonths = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre"]
+  @dh=[frenchWeekdays[@spectacle.start_time.wday.to_i],@spectacle.start_time.mday.to_s,frenchMonths[@spectacle.start_time.mon]].join(" ")
+  @dh+=" à #{@spectacle.start_time.hour}h#{@spectacle.start_time.min}"
+
   img = ImageList.new("Public"+@affiche_template.fond.url.split("?")[0])
   # Ajout de la date et de l'heure
   txt = Draw.new
-  img.annotate(txt,@affiche_template.dhwidth,@affiche_template.dhheigh,@affiche_template.dhx,@affiche_template.dhy, params[:texte]){
+  img.annotate(txt,@affiche_template.dhwidth,@affiche_template.dhheigh,@affiche_template.dhx,@affiche_template.dhy, @dh){
     txt.gravity = CenterGravity
     txt.pointsize = 400
     txt.stroke = '#000000'
     txt.fill = '#ffffff'
     txt.font_weight = Magick::BoldWeight
+  }
+
+  # Ajout du teaser
+  txt2 = Draw.new
+  img.annotate(txt2,@affiche_template.teaserwidth,@affiche_template.teaserheigh,@affiche_template.teaserx,@affiche_template.teasery, params[:teaser]){
+      txt2.gravity = CenterGravity
+      txt2.pointsize = 150
+      txt2.stroke = '#000000'
+      txt2.fill = '#ffffff'
+      txt2.font_weight = Magick::BoldWeight
   }
 
     img.format = 'jpeg'

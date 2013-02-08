@@ -8,11 +8,12 @@
   </span>
   <span class="span6">
     <h3> Générateur d'affiches </h3>
-      <div class="field">
     <%= form_tag(showFond_affiche_template_path(@affiche_template), :method => :get) do %>
-      <%= label_tag "Date du spectacle" %>
-      <%= text_field_tag "texte" %>
+      <div class="field">
+      <%= label_tag "Teaser" %>
+      <%= text_area_tag "teaser" %>
     </div>
+ <%=   select_tag("Spectacle", options_for_select(Spectacle.all.sort_by{|s| s.start_time}.reject{ |s| (s.start_time-DateTime.now)<0 }.map{|s| s.titre}))%>
     <div class="field">
       <%= submit_tag "Générer!"%>
     </div>
@@ -21,6 +22,7 @@
 
 </span>
 <span class="row">
+
 
   <span class="span12">
     <h4> Infos </h4>
@@ -38,6 +40,7 @@
       <li>Dh x: <%= @affiche_template.dhx %></li>
       <li>Dh y: <%= @affiche_template.dhy %></li>
     </ul>
+
   </span>
 </span>
 
