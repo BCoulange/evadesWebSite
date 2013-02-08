@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208162037) do
+ActiveRecord::Schema.define(:version => 20130208172941) do
+
+  create_table "affiche_templates", :force => true do |t|
+    t.integer  "teaserwidth"
+    t.integer  "teaserheigh"
+    t.integer  "teaserx"
+    t.integer  "teasery"
+    t.integer  "lieuwidth"
+    t.integer  "lieuheigh"
+    t.integer  "lieux"
+    t.integer  "lieuy"
+    t.integer  "dhwidth"
+    t.integer  "dhheigh"
+    t.integer  "dhx"
+    t.integer  "dhy"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "fond_file_name"
+    t.string   "fond_content_type"
+    t.integer  "fond_file_size"
+    t.datetime "fond_updated_at"
+    t.string   "nom"
+  end
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false

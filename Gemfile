@@ -51,6 +51,7 @@ gem "simple_calendar", "~> 0.1.1"
 # pour un éditeur de texte un peu meilleur
 gem "ckeditor"
 gem "paperclip"
+gem "rmagick"
 
 # pour gérer les Gmaps
 gem 'gmaps4rails'

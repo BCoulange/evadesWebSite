@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+require 'RMagick'
+include Magick
 
   def home
     @spectacles=Spectacle.all
@@ -22,4 +24,21 @@ class PagesController < ApplicationController
     flickr = FlickRaw::Flickr.new
     @photo_sets = flickr.photosets.getList(:user_id => ENV["FLICKR_EVADES_ID"])
   end
+
+
+
+  def lolcat
+    img = ImageList.new('public/computer-cat.jpg')
+    txt = Draw.new
+    img.annotate(txt, 0,0,0,0, "In ur Railz, annotatin ur picz."){
+    txt.gravity = Magick::SouthGravity
+    txt.pointsize = 25
+    txt.stroke = '#000000'
+    txt.fill = '#ffffff'
+    txt.font_weight = Magick::BoldWeight
+    }
+    img.format = 'jpeg'
+    send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
+  end
+  
 end

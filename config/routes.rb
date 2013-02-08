@@ -1,4 +1,7 @@
 EvadesWebSite::Application.routes.draw do
+  resources :affiche_templates
+
+
   devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -8,6 +11,7 @@ EvadesWebSite::Application.routes.draw do
   match 'pages/principe', :to => 'pages#principe', :as => :principe_page
   match 'pages/galerie', :to => 'pages#galerie', :as => :galerie_page
 
+  match 'pages/lolcat', :to => 'pages#lolcat', :as => :lolcat_page
 
 
   get "photos/index"  
