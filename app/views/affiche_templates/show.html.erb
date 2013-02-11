@@ -17,8 +17,8 @@
       
  <%=   select_tag("Spectacle", options_for_select(Spectacle.all.sort_by{|s| s.start_time}.reject{ |s| (s.start_time-DateTime.now)<0 }.map{|s| s.titre}))%>
        <div class="field">
-      <%= label_tag "Ecraser l'affiche du spectacle?" %>
-      <%= check_box_tag "Ecraser" %>
+      <%= check_box_tag "Ecraser" %><%= label_tag "Ecraser l'affiche du spectacle?" %>
+      
     </div>
     <div class="field">
       <%= submit_tag "Générer!"%>
