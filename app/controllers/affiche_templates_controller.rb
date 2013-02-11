@@ -201,6 +201,22 @@ def showFond
     decay+=tx_height
   end
 
+  # Ajout du lieu
+  txt2 = Draw.new 
+  txt2.pointsize = @dh_size * 0.4
+  lieu_texte="#{@lieu.nom}\n#{@lieu.street}\n#{@lieu.city}"
+  tx_height=txt2.get_type_metrics(lieu_texte)[4]
+  tx_height+=tx_height*0.2  
+  decay=@affiche_template.lieuy
+  lieu_texte.split("\n").each do |l|
+    img.annotate(txt2,@affiche_template.lieuwidth,@affiche_template.lieuheigh,@affiche_template.lieux,decay, l){
+        txt2.gravity = NorthWestGravity
+        txt2.stroke = '#000000'
+        txt2.fill = '#ffffff'
+        txt2.font_weight = Magick::BoldWeight
+    }
+    decay+=tx_height
+  end
 end
 
   if(params[:Ecraser]) then
