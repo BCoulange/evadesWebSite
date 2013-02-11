@@ -91,6 +91,22 @@ include Magick
   end
 
 
+def getPointSize(texte,img,sizePortion)
+
+# get one character size
+txt = Draw.new
+txt.pointsize = 10
+size = txt.get_type_metrics(img,texte)
+width,height = size[3],size[4]
+
+# nb de pixels a avoir par lettre
+nbPixByLetter = img.columns.to_f * sizePortion
+
+return (nbPixByLetter / width * 10).to_i
+
+end
+
+
 def showFond
   
 
@@ -100,14 +116,17 @@ def showFond
   frenchWeekdays = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
   frenchMonths = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre"]
   @dh=[frenchWeekdays[@spectacle.start_time.wday.to_i],@spectacle.start_time.mday.to_s,frenchMonths[@spectacle.start_time.mon]].join(" ")
-  @dh+=" à #{@spectacle.start_time.hour}h#{@spectacle.start_time.min}"
+  @dh+=" à #{@spectacle.start_time.hour}h#{sprintf('%02d',@spectacle.start_time.min)}"
+
 
   img = ImageList.new("Public"+@affiche_template.fond.url.split("?")[0])
+  @dh_size=getPointSize(@dh,img,@affiche_template.dhwidth.to_f / img.columns.to_f)
+
   # Ajout de la date et de l'heure
   txt = Draw.new
+  txt.pointsize = @dh_size
   img.annotate(txt,@affiche_template.dhwidth,@affiche_template.dhheigh,@affiche_template.dhx,@affiche_template.dhy, @dh){
     txt.gravity = CenterGravity
-    txt.pointsize = 400
     txt.stroke = '#000000'
     txt.fill = '#ffffff'
     txt.font_weight = Magick::BoldWeight
