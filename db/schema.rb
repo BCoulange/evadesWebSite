@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208172941) do
+ActiveRecord::Schema.define(:version => 20130210102742) do
 
   create_table "affiche_templates", :force => true do |t|
     t.integer  "teaserwidth"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(:version => 20130208172941) do
 
   create_table "lieus", :force => true do |t|
     t.string   "nom"
-    t.string   "gMapUrl"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "street"

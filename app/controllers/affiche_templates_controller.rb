@@ -94,6 +94,8 @@ include Magick
 def showFond
 
   @spectacle=Spectacle.find_by_titre(params[:Spectacle])
+  @lieu=@spectacle.lieu
+  lieuMessage="#{@lieu.nom}\n#{@lieu.street}\n#{@lieu.city}"
   frenchWeekdays = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
   frenchMonths = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre"]
   @dh=[frenchWeekdays[@spectacle.start_time.wday.to_i],@spectacle.start_time.mday.to_s,frenchMonths[@spectacle.start_time.mon]].join(" ")

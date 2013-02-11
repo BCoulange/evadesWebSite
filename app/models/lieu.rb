@@ -1,5 +1,5 @@
 class Lieu < ActiveRecord::Base
-  attr_accessible :street,:city,:country, :gMapUrl, :nom,:latitude,:longitude,:gmaps
+  attr_accessible :street,:city,:country, :nom,:latitude,:longitude,:gmaps
   has_many :spectacles
 
 acts_as_gmappable
