@@ -23,18 +23,26 @@
 	</span>
 </span>
 
- <h2> Autres spectacles à venir </h2>
+<span class='row'>
+	<span class="span12"><h2> Autres spectacles à venir </h2></span>
+</span>
+
+<span class="row">
+
 	<ul class="thumbnails">
 <%= render :partial=>"affiches_list", :collection =>@prochains_s, :as => :spectacle %>
 	</ul>
+</span>
+ 
+<span class='row'>
+	<span class="span12"><h2> Nos précédents spectacles </h2></span>
+</span>
 
-<h2> Nos précédents spectacles </h2>
+ <span class="row">
+	
 	<ul class="thumbnails">
 <%= render :partial=>"affiches_list", :collection =>@passes_s, :as => :spectacle %>
 	</ul>
-
-<br />
-
-
+</span>
 
  <button class="btn btn-new"><%= link_to 'Nouveau spectacle', new_spectacle_path %></button>
