@@ -15,6 +15,7 @@ before_filter :get_users
     @passes_s = @spectacles.reverse
     @passes_s = @passes_s.reject{ |s| (s.start_time-DateTime.now)>0 }
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @spectacles }

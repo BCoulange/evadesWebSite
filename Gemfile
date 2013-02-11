@@ -63,6 +63,9 @@ gem 'flickraw'
 # authentification des utilisateurs
 gem 'devise'
 
+# pagination
+gem 'will_paginate', '~> 3.0'
+
 
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
