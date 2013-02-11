@@ -3,11 +3,12 @@
     <%= image_tag "top.png", :class => "brand"%>
     <ul class="nav">
       <li><%= link_to "home", home_page_path %></li>
+      <li><%= link_to "Spectacles", spectacles_path %></li>       
       <li><%= link_to "Contact", contact_page_path %></li>
       <li><%= link_to "Qui sommes nous?", users_path%></li>
       <li><%= link_to "Nos planques", lieus_path %></li>
       <li><%= link_to "Principe", principe_page_path %></li>
-      <li><%= link_to "Galerie", photos_path %></li>      
+      <li><%= link_to "Galerie", photos_path %></li>         
     </ul>
 
 <% if user_signed_in? %>
@@ -26,7 +27,11 @@
   </ul>
 </div>
 <% else %>
+<ul class="nav">
+  <li class="pull-right">
   <%= link_to "Se connecter", "login" %>
+</li>
+</ul>
 <%end%>
   </div>
 
