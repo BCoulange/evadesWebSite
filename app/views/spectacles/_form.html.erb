@@ -16,6 +16,10 @@
     <%= f.text_field :titre %>
   </div>
   <div class="field">
+    <%= f.label :teaser %>
+    <%= f.text_area :teaser%>
+  </div>  
+  <div class="field">
     <%= f.label :message %>
     <%= f.cktext_area :message, :ckeditor => {:language => "fr", :toolbar => "mini"}%>
   </div>

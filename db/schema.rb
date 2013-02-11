@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210102742) do
+ActiveRecord::Schema.define(:version => 20130211105617) do
 
   create_table "affiche_templates", :force => true do |t|
     t.integer  "teaserwidth"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20130210102742) do
     t.string   "affiche_content_type"
     t.integer  "affiche_file_size"
     t.datetime "affiche_updated_at"
+    t.string   "teaser"
   end
 
   add_index "spectacles", ["lieu_id"], :name => "index_spectacles_on_lieu_id"
