@@ -95,7 +95,7 @@ def showFond
   
 
   @spectacle=Spectacle.find_by_titre(params[:Spectacle])
-  @lieu=@spectacle.lieu
+  @lieu=Lieu.find(@spectacle.lieu_id)
   lieuMessage="#{@lieu.nom}\n#{@lieu.street}\n#{@lieu.city}"
   frenchWeekdays = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
   frenchMonths = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre"]
@@ -114,6 +114,7 @@ def showFond
   }
 
   # Ajout du teaser
+  unless params[:teaser].nil? then
   txt2 = Draw.new
   img.annotate(txt2,@affiche_template.teaserwidth,@affiche_template.teaserheigh,@affiche_template.teaserx,@affiche_template.teasery, params[:teaser]){
       txt2.gravity = CenterGravity
@@ -122,6 +123,7 @@ def showFond
       txt2.fill = '#ffffff'
       txt2.font_weight = Magick::BoldWeight
   }
+end
 
 
   if(params[:Ecraser]) then
