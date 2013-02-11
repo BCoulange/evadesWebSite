@@ -90,6 +90,30 @@ include Magick
     end
   end
 
+def constructLines(texte,txt,width,img)
+
+width_tot = txt.get_type_metrics(img,texte)[3]
+lettersize = width_tot / texte.size
+
+  # construct lines
+words=texte.split(" ")
+lines=[]
+localLine=""
+words.each do |w|
+  if((localLine+w).size * lettersize) < width then
+    localLine+=" "+w
+  else
+    lines << localLine
+    localLine=w
+  end
+end
+lines << localLine
+
+return lines
+
+end
+
+
 def getPointSizeBySurface(texte,img,sizePortionX,sizePortionY) 
 
 # get one character size
@@ -107,21 +131,8 @@ new_Width  = Math.sqrt( aire / ratioTxt ).to_i
 lettersize = new_Width / texte.size
 pointsize = (new_Width / width * 10).to_i
 
-# construct lines
-words=texte.split(" ")
-lines=[]
-localLine=""
-words.each do |w|
-  if(localLine+w).size * lettersize < img.columns.to_f * sizePortionX.to_f then
-    localLine+=" "+w
-  else
-    lines << localLine
-    localLine=w
-  end
-end
-  lines << localLine
 
-return lines,pointsize
+return pointsize
 
 end
 
@@ -170,19 +181,19 @@ def showFond
   # Ajout du teaser
   unless params[:teaser].nil? then
 
-  @lines,@pointsize=getPointSizeBySurface(params[:teaser],img,@affiche_template.teaserwidth.to_f / img.columns.to_f,@affiche_template.teaserheigh.to_f / img.columns.to_f) 
+  @pointsize=getPointSizeBySurface(params[:teaser],img,@affiche_template.teaserwidth.to_f / img.columns.to_f,@affiche_template.teaserheigh.to_f / img.rows.to_f) 
 
   txt2 = Draw.new
   txt2.pointsize = @pointsize
+  txt2.pointsize = @dh_size * 0.7 if @pointsize>@dh_size * 0.5 
+  @lines = constructLines(params[:teaser],txt2,@affiche_template.teaserwidth,img)
   tx_height=txt2.get_type_metrics(img,params[:teaser])[4]
   tx_height+=tx_height*0.2
 
   decay=@affiche_template.teasery
   @lines.each do |l|
-
     img.annotate(txt2,@affiche_template.teaserwidth,@affiche_template.teaserheigh,@affiche_template.teaserx,decay, l){
-        txt2.gravity = CenterGravity
-
+        txt2.gravity = NorthGravity
         txt2.stroke = '#000000'
         txt2.fill = '#ffffff'
         txt2.font_weight = Magick::BoldWeight
