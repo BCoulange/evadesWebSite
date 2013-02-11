@@ -1,0 +1,18 @@
+  		<li class="span3">
+    		<div class="thumbnail">
+
+<%= link_to spectacle do %>
+<%= image_tag spectacle.affiche.url(:showPage) %>
+<h4><%=spectacle.titre%></h4>
+      <div class="btn-group">
+  <button class="btn"><%= link_to 'Edit', edit_spectacle_path(spectacle) %></button>
+  <button class="btn"><%= link_to 'Destroy', spectacle, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      </div>
+<% end%>
+
+
+    						</div>
+		</li>
+
+
+

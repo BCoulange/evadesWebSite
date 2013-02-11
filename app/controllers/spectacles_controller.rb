@@ -7,7 +7,11 @@ before_filter :get_users
   # GET /spectacles
   # GET /spectacles.json
   def index
-    @spectacles = Spectacle.all
+    @spectacles = Spectacle.all.sort_by{|s| s.start_time}
+    @prochains_s = @spectacles
+    @prochains_s.reject{ |s| (s.start_time-DateTime.now)<0 }[0]
+    @passes_s = @spectacles.reverse
+    @passes_s.reject{ |s| (s.start_time-DateTime.now)>0 }[0]
 
     respond_to do |format|
       format.html # index.html.erb

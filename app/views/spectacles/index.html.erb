@@ -1,6 +1,6 @@
-<h1>Listing spectacles</h1>
+<h1>Nos spectacles</h1>
 
-<table class="table table-striped table-bordered">
+<!-- <table class="table table-striped table-bordered">
 
     <thead>
 <%= render "spectacles_list_head" %>
@@ -10,6 +10,28 @@
 </tbody>
 
 </table>
+ -->
+
+<h2> Le prochain spectacle </h2>
+<span class='row'>
+	<span class='span3'>
+	<%= image_tag @prochains_s[0].affiche.url(:showPage) %>
+	</span>
+	<span class='span9'>
+		<h4><%= @prochains_s[0].titre %></h4>
+		<%= @prochains_s[0].message %>
+	</span>
+</span>
+
+ <h2> Autres spectacles à venir </h2>
+	<ul class="thumbnails">
+<%= render :partial=>"affiches_list", :collection =>@prochains_s, :as => :spectacle %>
+	</ul>
+
+<h2> Nos précédents spectacles </h2>
+	<ul class="thumbnails">
+<%= render :partial=>"affiches_list", :collection =>@passes_s, :as => :spectacle %>
+	</ul>
 
 <br />
 
