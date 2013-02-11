@@ -6,7 +6,7 @@ include Magick
   def home
     @spectacles=Spectacle.all
     @prochain_s=@spectacles.sort_by{|s| s.start_time}.reject{ |s| (s.start_time-DateTime.now)<0 }[0] unless @spectacles.empty?
-
+    @has_affiche=!@prochain_s.nil?
 
     render :layout => 'homepage'
   end

@@ -92,6 +92,7 @@ include Magick
 
 
 def showFond
+  
 
   @spectacle=Spectacle.find_by_titre(params[:Spectacle])
   @lieu=@spectacle.lieu
@@ -122,9 +123,29 @@ def showFond
       txt2.font_weight = Magick::BoldWeight
   }
 
-    img.format = 'jpeg'
+
+  if(params[:Ecraser]) then
+
+#    img.format = 'jpeg'
+
+    file = Tempfile.new('my_picture')
+    img.flatten_images.write(file.path)
+    @spectacle.affiche = file
+    @spectacle.save
+
+#    send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
+
+# File.open(File.join(Rails.root,'db','fixtures','avatars','avatar_george.jpg'))
+
+
+    redirect_to @spectacle
+
+  else
+
     send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
-#  redirect_to :back
+
+  end
+
 end
 
   def lolcat
