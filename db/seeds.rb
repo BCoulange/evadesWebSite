@@ -35,7 +35,7 @@ Spectacle.create!([{titre: 'Les Evadés et Houdini', start_time: DateTime.new(20
 
 
 # Templates
-AfficheTemplate.create!([{nom: "fond batiments",dhheigh: 643, dhwidth: 4613, dhx: 151, dhy: 2866, lieuheigh: 500, lieuwidth: 500, lieux: 500, lieuy:500, teaserheigh: 500, teaserwidth: 500, teaserx: 1000, teasery: 1000, fond: File.open(File.join(Rails.root,'db','fixtures','templates','batiments.png'))}])
+AfficheTemplate.create!([{nom: "fond batiments",dhheigh: 643, dhwidth: 4613, dhx: 151, dhy: 2866, lieuheigh: 500, lieuwidth: 500, lieux: 500, lieuy:500, teaserheigh: 1759, teaserwidth: 2105, teaserx: 2668, teasery: 176, fond: File.open(File.join(Rails.root,'db','fixtures','templates','batiments.png'))}])
 
 
 

@@ -90,6 +90,41 @@ include Magick
     end
   end
 
+def getPointSizeBySurface(texte,img,sizePortionX,sizePortionY) 
+
+# get one character size
+txt = Draw.new
+txt.pointsize = 10
+size = txt.get_type_metrics(img,texte)
+width,height = size[3],size[4]
+
+# aire de la cellule dans laquelle on veut mettre le texte
+aire = img.columns.to_f * img.rows.to_f * sizePortionX.to_f * sizePortionY.to_f
+ratioTxt = height.to_f / width.to_f 
+
+# calcul de la taille en point
+new_Width  = Math.sqrt( aire / ratioTxt ).to_i
+lettersize = new_Width / texte.size
+pointsize = (new_Width / width * 10).to_i
+
+# construct lines
+words=texte.split(" ")
+lines=[]
+localLine=""
+words.each do |w|
+  if(localLine+w).size * lettersize < img.columns.to_f * sizePortionX.to_f then
+    localLine+=" "+w
+  else
+    lines << localLine
+    localLine=w
+  end
+end
+  lines << localLine
+
+return lines,pointsize
+
+end
+
 
 def getPointSize(texte,img,sizePortion)
 
@@ -134,16 +169,28 @@ def showFond
 
   # Ajout du teaser
   unless params[:teaser].nil? then
-  txt2 = Draw.new
-  img.annotate(txt2,@affiche_template.teaserwidth,@affiche_template.teaserheigh,@affiche_template.teaserx,@affiche_template.teasery, params[:teaser]){
-      txt2.gravity = CenterGravity
-      txt2.pointsize = 150
-      txt2.stroke = '#000000'
-      txt2.fill = '#ffffff'
-      txt2.font_weight = Magick::BoldWeight
-  }
-end
 
+  @lines,@pointsize=getPointSizeBySurface(params[:teaser],img,@affiche_template.teaserwidth.to_f / img.columns.to_f,@affiche_template.teaserheigh.to_f / img.columns.to_f) 
+
+  txt2 = Draw.new
+  txt2.pointsize = @pointsize
+  tx_height=txt2.get_type_metrics(img,params[:teaser])[4]
+  tx_height+=tx_height*0.2
+
+  decay=@affiche_template.teasery
+  @lines.each do |l|
+
+    img.annotate(txt2,@affiche_template.teaserwidth,@affiche_template.teaserheigh,@affiche_template.teaserx,decay, l){
+        txt2.gravity = CenterGravity
+
+        txt2.stroke = '#000000'
+        txt2.fill = '#ffffff'
+        txt2.font_weight = Magick::BoldWeight
+    }
+    decay+=tx_height
+  end
+
+end
 
   if(params[:Ecraser]) then
 
@@ -169,59 +216,6 @@ end
 
 end
 
-  def lolcat
-    img = ImageList.new('public/computer-cat.jpg')
-    txt = Draw.new
-    img.annotate(txt, 0,0,0,0, "In ur Railz, annotatin ur picz."){
-    txt.gravity = Magick::SouthGravity
-    txt.pointsize = 25
-    txt.stroke = '#000000'
-    txt.fill = '#ffffff'
-    txt.font_weight = Magick::BoldWeight
-    }
-    img.format = 'jpeg'
-    send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
-  end
-
-
-def genAffiche(fond,teaser,teaser_texte,dateheure,dateheure_texte,infosLieu,infoLieu_texte,affiche)
-  img = ImageList.new(fond)
-  txt = Draw.new
-  txt2 = Draw.new
-  txt3 = Draw.new
-
-  yoffset = teaser[:yoffset]
-  wrap_intelligent(teaser_texte, teaser[:lar]).split('\n').each do |row|
-    img.annotate(txt, teaser[:width],teaser[:heigh],teaser[:xoffset],teaser[:yoffset], row){
-      txt.gravity = CenterGravity
-      txt.pointsize = 150
-      txt.stroke = '#000000'
-      txt.fill = '#ffffff'
-      txt.font_weight = Magick::BoldWeight
-    }
-    yoffset+=20
-  end
-
-  img.annotate(txt2, dateheure[:width],dateheure[:heigh],dateheure[:xoffset],dateheure[:yoffset], dateheure_texte){
-    txt2.gravity = CenterGravity
-    txt2.pointsize = 400
-    txt2.stroke = '#000000'
-    txt2.fill = '#ffffff'
-    txt2.font_weight = Magick::BoldWeight
-  }
-
-  img.annotate(txt3, infosLieu[:width],infosLieu[:heigh],infosLieu[:xoffset],infosLieu[:yoffset], infoLieu_texte){
-    txt3.pointsize = 120
-    txt3.stroke = '#000000'
-    txt3.fill = '#ffffff'
-    txt3.font_weight = Magick::BoldWeight
-  }
-
-  img.format = 'jpeg'
-  img.write(affiche)
-  img.destroy!
-
-end
 
 
 
