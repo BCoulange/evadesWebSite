@@ -179,45 +179,57 @@ def showFond
   }
 
   # Ajout du teaser
-  unless params[:teaser].nil? then
+  unless params[:teaser].nil? || params[:teaser].empty? then
 
-  @pointsize=getPointSizeBySurface(params[:teaser],img,@affiche_template.teaserwidth.to_f / img.columns.to_f,@affiche_template.teaserheigh.to_f / img.rows.to_f) 
+    @pointsize=getPointSizeBySurface(params[:teaser],img,@affiche_template.teaserwidth.to_f / img.columns.to_f,@affiche_template.teaserheigh.to_f / img.rows.to_f) 
 
-  txt2 = Draw.new
-  txt2.pointsize = @pointsize
-  txt2.pointsize = @dh_size * 0.7 if @pointsize>@dh_size * 0.5 
-  @lines = constructLines(params[:teaser],txt2,@affiche_template.teaserwidth,img)
-  tx_height=txt2.get_type_metrics(img,params[:teaser])[4]
-  tx_height+=tx_height*0.2
+    txt2 = Draw.new
+    txt2.pointsize = @pointsize
+    txt2.pointsize = @dh_size * 0.7 if @pointsize>(@dh_size * 0.5) 
+    @lines = constructLines(params[:teaser],txt2,@affiche_template.teaserwidth,img)
+    tx_height=txt2.get_type_metrics(img,params[:teaser])[4]
+    tx_height+=tx_height*0.2
 
-  decay=@affiche_template.teasery
-  @lines.each do |l|
-    img.annotate(txt2,@affiche_template.teaserwidth,@affiche_template.teaserheigh,@affiche_template.teaserx,decay, l){
+    decay=@affiche_template.teasery
+    @lines.each do |l|
+      img.annotate(txt2,@affiche_template.teaserwidth,@affiche_template.teaserheigh,@affiche_template.teaserx,decay, l){
         txt2.gravity = NorthGravity
         txt2.stroke = '#000000'
         txt2.fill = '#ffffff'
         txt2.font_weight = Magick::BoldWeight
+      }
+      decay+=tx_height
+    end
+  end
+
+  # Ajout du lieu
+  txt3 = Draw.new 
+  txt3.pointsize = @dh_size * 0.3
+  lieu_texte="#{@lieu.nom}\n#{@lieu.street}\n#{@lieu.city}"
+  tx_height=txt3.get_type_metrics(img,lieu_texte)[4]
+  tx_height+=tx_height*0.2  
+  decay=@affiche_template.lieuy
+  lieu_texte.split("\n").each do |l|
+    img.annotate(txt3,@affiche_template.lieuwidth,@affiche_template.lieuheigh,@affiche_template.lieux,decay, l){
+        txt3.gravity = NorthWestGravity
+        txt3.stroke = '#000000'
+        txt3.fill = '#ffffff'
+        txt3.font_weight = Magick::BoldWeight
     }
     decay+=tx_height
   end
 
-  # Ajout du lieu
-  txt2 = Draw.new 
-  txt2.pointsize = @dh_size * 0.4
-  lieu_texte="#{@lieu.nom}\n#{@lieu.street}\n#{@lieu.city}"
-  tx_height=txt2.get_type_metrics(lieu_texte)[4]
-  tx_height+=tx_height*0.2  
-  decay=@affiche_template.lieuy
-  lieu_texte.split("\n").each do |l|
-    img.annotate(txt2,@affiche_template.lieuwidth,@affiche_template.lieuheigh,@affiche_template.lieux,decay, l){
-        txt2.gravity = NorthWestGravity
-        txt2.stroke = '#000000'
-        txt2.fill = '#ffffff'
-        txt2.font_weight = Magick::BoldWeight
-    }
-    decay+=tx_height
-  end
-end
+  # ajout du site web
+  txt4 = Draw.new   
+  txt4.pointsize = @dh_size * 0.3
+  ws_texte = "www.ruebarrow.fr"
+  tx_height=txt4.get_type_metrics(img,ws_texte)[4]   
+  img.annotate(txt4,img.columns,tx_height,0,-img.rows+tx_height,ws_texte){
+      txt4.gravity = SouthGravity
+      txt4.stroke = '#000000'
+      txt4.fill = '#ffffff'
+      txt4.font_weight = Magick::BoldWeight
+  }
 
   if(params[:Ecraser]) then
 
