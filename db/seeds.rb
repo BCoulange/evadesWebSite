@@ -15,7 +15,7 @@ lieux=Lieu.create!([{nom: 'Le Sonar(t)', street: '55 rue Pigalle', city: 'Paris'
 	{ nom: 'Télécom ParisTech', street: '45 rue Vergniaud', city: 'Paris', country: 'France'}])
 
 # Evadés
-evades=User.create!([{email: 'nicolas.tupecabet@gmail.com', password: '123456', password_confirmation: '123456', prenom: 'Gaétan', nom: 'Bucipotels', surnom: 'Gaétan le Manipulant'},
+evades=User.create!([{email: 'nicolas.tupecabet@gmail.com', password: '123456', password_confirmation: '123456', prenom: 'Gaétan', nom: 'Bucipotels', surnom: 'Gaétan le Manipulant',  avatar: File.open(File.join(Rails.root,'db','fixtures','avatar_gaetan.jpg'))  },
 	{email: 'thomas.gambier@gmail.com', password: '123456', password_confirmation: '123456', prenom: 'Thomas', nom: 'Gambier', surnom: 'Georges le coupe-gorge'},
 	{email: 'stephanie.hannauteau@gmail.com', password: '123456', password_confirmation: '123456', prenom: 'Stéphanie', nom: 'Hannauteau', surnom: 'Lise l\'indécise'}])
 
