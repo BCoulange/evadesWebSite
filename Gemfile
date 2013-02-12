@@ -52,6 +52,7 @@ gem "simple_calendar", "~> 0.1.1"
 gem "ckeditor"
 gem "paperclip"
 gem "rmagick"
+gem 'aws-sdk'
 
 # pour gérer les Gmaps
 gem 'gmaps4rails'
