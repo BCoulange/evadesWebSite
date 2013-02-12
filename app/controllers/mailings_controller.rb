@@ -44,6 +44,8 @@ class MailingsController < ApplicationController
 
     respond_to do |format|
       if @mailing.save
+        MailingMailer.welcome_email(@mailing).deliver
+
         format.html { redirect_to :back, notice: 'Mailing was successfully created.' }
         format.json { render json: @mailing, status: :created, location: @mailing }
       else
