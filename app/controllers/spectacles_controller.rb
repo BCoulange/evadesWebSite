@@ -2,12 +2,19 @@ class SpectaclesController < ApplicationController
 
 before_filter :authenticate_user!, :except => [:index, :show]
 
+
+
 before_filter :get_users
 
   # GET /spectacles
   # GET /spectacles.json
   def index
-    @spectacles = Spectacle.all
+    @spectacles = Spectacle.all.sort_by{|s| s.start_time}
+    @prochains_s = @spectacles
+    @prochains_s = @prochains_s.reject{ |s| (s.start_time-DateTime.now)<0 }
+    @passes_s = @spectacles.reverse
+    @passes_s = @passes_s.reject{ |s| (s.start_time-DateTime.now)>0 }
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -48,13 +55,19 @@ before_filter :get_users
   def create
     @spectacle = Spectacle.new(params[:spectacle])
 
-    respond_to do |format|
-      if @spectacle.save
-        format.html { redirect_to @spectacle, notice: 'Spectacle was successfully created.' }
-        format.json { render json: @spectacle, status: :created, location: @spectacle }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @spectacle.errors, status: :unprocessable_entity }
+    unless  @spectacle.affiche.file? then
+      @spectacle.save
+      redirect_to showFond_affiche_template_path(AfficheTemplate.all[-1], {:Spectacle => @spectacle.titre, :Ecraser => "1"}) 
+    else
+
+      respond_to do |format|
+        if @spectacle.save
+          format.html { redirect_to @spectacle, notice: 'Spectacle was successfully created.' }
+          format.json { render json: @spectacle, status: :created, location: @spectacle }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @spectacle.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -90,5 +103,7 @@ before_filter :get_users
   def get_users
     @users = User.find(:all, :order => "surnom")
   end
+
+
 
 end

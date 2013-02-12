@@ -1,0 +1,60 @@
+<h1><%= @affiche_template.nom %></h1>
+
+
+
+<span class="row">
+  <span class="span6">
+    <%= image_tag @affiche_template.fond.url(:homepage) %>
+  </span>
+  <span class="span6">
+    <h3> Générateur d'affiches </h3>
+    <%= form_tag(showFond_affiche_template_path(@affiche_template), :method => :get) do %>
+      <div class="field">
+      <%= label_tag "Teaser" %>
+      <%= text_area_tag "teaser" %>
+    </div>
+
+      
+ <%=   select_tag("Spectacle", options_for_select(Spectacle.all.sort_by{|s| s.start_time}.reject{ |s| (s.start_time-DateTime.now)<0 }.map{|s| s.titre}))%>
+       <div class="field">
+      <%= check_box_tag "Ecraser" %><%= label_tag "Ecraser l'affiche du spectacle?" %>
+      
+    </div>
+    <div class="field">
+      <%= submit_tag "Générer!"%>
+    </div>
+    <% end %>
+  </span>
+
+</span>
+<span class="row">
+
+
+  <span class="span12">
+    <h4> Infos </h4>
+    <ul>
+      <li>Teaser width: <%= @affiche_template.teaserwidth %></li>
+      <li>Teaser heigh: <%= @affiche_template.teaserheigh %></li>
+      <li>Teaser x: <%= @affiche_template.teaserx %></li>
+      <li>Teaser y: <%= @affiche_template.teasery %></li>
+      <li>Lieu width: <%= @affiche_template.lieuwidth %></li>
+      <li>Lieu heigh: <%= @affiche_template.lieuheigh %></li>
+      <li>Lieu x: <%= @affiche_template.lieux %></li>
+      <li>Lieu y: <%= @affiche_template.lieuy %></li>
+      <li>Dh width: <%= @affiche_template.dhwidth %></li>
+      <li>Dh heigh: <%= @affiche_template.dhheigh %></li>
+      <li>Dh x: <%= @affiche_template.dhx %></li>
+      <li>Dh y: <%= @affiche_template.dhy %></li>
+    </ul>
+
+  </span>
+</span>
+
+
+<span class="row">
+<span class="span12">
+
+<%= link_to 'Edit', edit_affiche_template_path(@affiche_template) %> |
+<%= link_to 'Back', affiche_templates_path %>
+</span>
+</span>

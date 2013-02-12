@@ -1,0 +1,73 @@
+<%= form_for(@affiche_template) do |f| %>
+  <% if @affiche_template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@affiche_template.errors.count, "error") %> prohibited this affiche_template from being saved:</h2>
+
+      <ul>
+      <% @affiche_template.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :nom %><br />
+    <%= f.text_field :nom %>
+  </div>
+  <div class="field">
+    <%= f.label :teaser_width %><br />
+    <%= f.number_field :teaserwidth %>
+  </div>
+  <div class="field">
+    <%= f.label :teaser_heigh %><br />
+    <%= f.number_field :teaserheigh %>
+  </div>
+  <div class="field">
+    <%= f.label :teaser_x %><br />
+    <%= f.number_field :teaserx %>
+  </div>
+  <div class="field">
+    <%= f.label :teaser_y %><br />
+    <%= f.number_field :teasery %>
+  </div>
+  <div class="field">
+    <%= f.label :lieu_width %><br />
+    <%= f.number_field :lieuwidth %>
+  </div>
+  <div class="field">
+    <%= f.label :lieu_heigh %><br />
+    <%= f.number_field :lieuheigh %>
+  </div>
+  <div class="field">
+    <%= f.label :lieu_x %><br />
+    <%= f.number_field :lieux %>
+  </div>
+  <div class="field">
+    <%= f.label :lieu_y %><br />
+    <%= f.number_field :lieuy %>
+  </div>
+  <div class="field">
+    <%= f.label :dh_width %><br />
+    <%= f.number_field :dhwidth %>
+  </div>
+  <div class="field">
+    <%= f.label :dh_heigh %><br />
+    <%= f.number_field :dhheigh %>
+  </div>
+  <div class="field">
+    <%= f.label :dh_x %><br />
+    <%= f.number_field :dhx %>
+  </div>
+  <div class="field">
+    <%= f.label :dh_y %><br />
+    <%= f.number_field :dhy %>
+  </div>
+    <div class="field">
+    <%= f.label :fond %><br />
+  <%= f.file_field :fond %>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

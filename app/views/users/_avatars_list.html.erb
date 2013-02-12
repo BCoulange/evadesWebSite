@@ -1,0 +1,15 @@
+<li class="span6">
+	<span class="thumbnail">
+		<h4><%=user.surnom%></h4>
+		<%= link_to user do %>
+				<%= image_tag user.avatar.url(:medium) %>
+      	<% end%>
+      	<div class="btn-group">
+  				<button class="btn"><%= link_to 'Edit', edit_user_path(user) %></button>
+  				<button class="btn"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      	</div>
+    </span>
+</li>
+
+
+

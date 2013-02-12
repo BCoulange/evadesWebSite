@@ -8,6 +8,16 @@ class LieusController < ApplicationController
     @lieus = Lieu.all
     @jsonGmaps = Lieu.all.to_gmaps4rails
 
+    @jsonGmaps = Lieu.all.to_gmaps4rails do |lieu, marker|
+ marker.infowindow render_to_string(:partial => "/lieus/infoWindow", :locals => { :lieu => lieu})
+ marker.title "#{lieu.nom}"
+      marker.picture({
+                  :picture => File.join(Rails.root,'app','assets','images','ecussonGmap.png'),
+                  :width   => 32,
+                  :height  => 32
+                 })
+  end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @lieus }

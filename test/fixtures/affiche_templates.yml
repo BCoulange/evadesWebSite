@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  teaser_width: 1
+  teaser_heigh: 1
+  teaser_x: 1
+  teaser_y: 1
+  lieu_width: 1
+  lieu_heigh: 1
+  lieu_x: 1
+  lieu_y: 1
+  dh_width: 1
+  dh_heigh: 1
+  dh_x: 
+  dh_y: 1
+
+two:
+  teaser_width: 1
+  teaser_heigh: 1
+  teaser_x: 1
+  teaser_y: 1
+  lieu_width: 1
+  lieu_heigh: 1
+  lieu_x: 1
+  lieu_y: 1
+  dh_width: 1
+  dh_heigh: 1
+  dh_x: 
+  dh_y: 1
