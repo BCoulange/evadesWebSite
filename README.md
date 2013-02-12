@@ -15,6 +15,7 @@
 - [x] Affichage des lieux sur une carte Gmap
 - [x] Affichage du prochain spectacle sur la home
 - [x] Gestion du calendrier
+- [x] Authentification nécessaire pour certaines pages
 - [x] Lien entre les spectacles et les lieux
 - [x] Générateur d'affiches qui récupère les infos du spectacle
 - [x] Affiche générée à la volée pourles spectacles sans affiches
