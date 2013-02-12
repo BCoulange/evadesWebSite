@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211105617) do
+ActiveRecord::Schema.define(:version => 20130212181852) do
 
   create_table "affiche_templates", :force => true do |t|
     t.integer  "teaserwidth"
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(:version => 20130211105617) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+  end
+
+  create_table "mailings", :force => true do |t|
+    t.string   "nom"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "spectacles", :force => true do |t|
