@@ -31,7 +31,7 @@
 <% else %>
 <ul class="nav">
   <li class="pull-right">
-  <%= link_to "Se connecter", "login" %>
+  <%= link_to "Se connecter", "login" unless user_signed_in?%>
 </li>
 </ul>
 <%end%>
