@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  @spectacles=Spectacle.all
+  before_filter :inscriptionML
+
+  def inscriptionML
+  	@mailing=Mailing.new
+
+  end
+
 end

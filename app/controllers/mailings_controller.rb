@@ -44,10 +44,10 @@ class MailingsController < ApplicationController
 
     respond_to do |format|
       if @mailing.save
-        format.html { redirect_to @mailing, notice: 'Mailing was successfully created.' }
+        format.html { redirect_to :back, notice: 'Mailing was successfully created.' }
         format.json { render json: @mailing, status: :created, location: @mailing }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to :back }
         format.json { render json: @mailing.errors, status: :unprocessable_entity }
       end
     end
