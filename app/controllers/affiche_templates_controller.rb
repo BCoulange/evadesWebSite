@@ -165,7 +165,7 @@ def showFond
   @dh+=" à #{@spectacle.start_time.hour}h#{sprintf('%02d',@spectacle.start_time.min)}"
 
 
-  img = ImageList.new("Public"+@affiche_template.fond.url.split("?")[0])
+  img = ImageList.new(@affiche_template.fond.url.split("?")[0])
   @dh_size=getPointSize(@dh,img,@affiche_template.dhwidth.to_f / img.columns.to_f)
 
   # Ajout de la date et de l'heure
