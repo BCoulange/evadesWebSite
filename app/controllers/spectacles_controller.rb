@@ -1,10 +1,13 @@
 class SpectaclesController < ApplicationController
 
+require 'will_paginate/array'
+
 before_filter :authenticate_user!, :except => [:index, :show]
 
 
 
 before_filter :get_users
+
 
   # GET /spectacles
   # GET /spectacles.json
@@ -14,7 +17,7 @@ before_filter :get_users
     @prochains_s = @prochains_s.reject{ |s| (s.start_time-DateTime.now)<0 }
     @passes_s = @spectacles.reverse
     @passes_s = @passes_s.reject{ |s| (s.start_time-DateTime.now)>0 }
-
+    @passes_s=@passes_s.paginate(:page => params[:page],:per_page => 3)
 
     respond_to do |format|
       format.html # index.html.erb

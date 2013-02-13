@@ -37,7 +37,7 @@
 <span class='row'>
 	<span class="span12"><h2> Nos précédents spectacles </h2></span>
 </span>
-
+<%= page_entries_info @passes_s %>
  <span class="row">
 	
 	<ul class="thumbnails">
@@ -45,4 +45,7 @@
 	</ul>
 </span>
 
+<div class="pagination">
+<%= will_paginate @passes_s %>
+</div>
  <button class="btn btn-new"><%= link_to 'Nouveau spectacle', new_spectacle_path %></button>

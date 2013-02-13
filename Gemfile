@@ -68,6 +68,7 @@ gem 'devise'
 gem 'will_paginate', '~> 3.0'
 
 
+
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
 gem 'font-awesome-rails'

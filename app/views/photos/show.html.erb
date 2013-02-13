@@ -2,7 +2,7 @@
 
 
 <ul class="thumbnails">
-	<% flickr.photosets.getPhotos(:photoset_id => @set.id).photo.each do |p| %>
+	<% @photos.each do |p| %>
   		<li class="span5">
     				<a class="thumbnail" href=<%= "http://farm#{p.farm}.staticflickr.com/#{p.server}/#{p.id}_#{p.secret}.jpg" %>>
     	<div class="well"><%= image_tag "http://farm#{p.farm}.staticflickr.com/#{p.server}/#{p.id}_#{p.secret}.jpg", :class => "brand"%></div>
@@ -13,3 +13,6 @@
 
  		</ul>
 
+
+<%= page_entries_info @photos %>
+<%= will_paginate @photos %>
