@@ -1,25 +1,24 @@
-<%= form_for(@mailing) do |f| %>
-  <% if @mailing.errors.any? %>
+  <div class="span12">
+<%= form_for(@new_mailing) do |f| %>
+  <% if @new_mailing.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@mailing.errors.count, "error") %> prohibited this mailing from being saved:</h2>
+      <h2><%= pluralize(@new_mailing.errors.count, "error") %> prohibited this mailing from being saved:</h2>
 
       <ul>
-      <% @mailing.errors.full_messages.each do |msg| %>
+      <% @new_mailing.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nom %><br />
-    <%= f.text_field :nom %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+    <%= f.text_field :nom, :placeholder => "nom" %>
+
+    <%= f.text_field :email ,:placeholder => "email"%>
+
+
+    <%= f.submit nil , :class => 'btn btn-primary'%>
 <% end %>
+  </div>

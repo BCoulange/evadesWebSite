@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :inscriptionML
 
   def inscriptionML
-  	@mailing=Mailing.new
+  	@new_mailing=Mailing.new
 
   end
 

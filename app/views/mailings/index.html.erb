@@ -1,10 +1,11 @@
-<h1>Listing mailings</h1>
+<h1>Liste des inscrits</h1>
 
-<table>
+<%= render 'form' %>
+
+<table class="table table-striped">
   <tr>
     <th>Nom</th>
     <th>Email</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -13,7 +14,6 @@
   <tr>
     <td><%= mailing.nom %></td>
     <td><%= mailing.email %></td>
-    <td><%= link_to 'Show', mailing %></td>
     <td><%= link_to 'Edit', edit_mailing_path(mailing) %></td>
     <td><%= link_to 'Destroy', mailing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -22,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Mailing', new_mailing_path %>
+
