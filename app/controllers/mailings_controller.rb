@@ -1,3 +1,4 @@
+# encoding: utf-8
 class MailingsController < ApplicationController
   # GET /mailings
   # GET /mailings.json
@@ -49,6 +50,7 @@ class MailingsController < ApplicationController
         format.html { redirect_to :back, notice: 'Mailing was successfully created.' }
         format.json { render json: @mailing, status: :created, location: @mailing }
       else
+        flash[:error] = "Cet email est déjà inscrit" 
         format.html { redirect_to :back }
         format.json { render json: @mailing.errors, status: :unprocessable_entity }
       end
