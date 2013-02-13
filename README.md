@@ -31,3 +31,5 @@
 - [ ] Mise en forme globale
 
 
+# Liens 
+* Formulaire de contact léger : http://matharvard.ca/posts/2011/aug/22/contact-form-in-rails-3/
