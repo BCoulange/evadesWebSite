@@ -14,6 +14,10 @@ EvadesWebSite::Application.routes.draw do
   match 'pages/principe', :to => 'pages#principe', :as => :principe_page
   match 'pages/galerie', :to => 'pages#galerie', :as => :galerie_page
 
+  match 'candidature' => 'pages#candidature', :as => 'candidature', :via => :get
+  match 'candidature' => 'pages#create_candidature', :as => 'candidature', :via => :post
+
+
   resources :affiche_templates do
     get "showFond", :on => :member
   end

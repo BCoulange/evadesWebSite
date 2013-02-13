@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+		<h1>Nouvelle candidature sur le site!</h1>
+		<h3><%=@candidature.prenom%> <%=@candidature.nom%></h3>
+		<p><%= @candidature.age %> ans<p>
+		<p><%= @candidature.annees_exp_impro %> années d'impro </p>
+		<h4> Message : </h4>
+		<%= @candidature.message %>
+		<p> Mail de contact : <%= @candidature.email %>
+  </body>
+</html>

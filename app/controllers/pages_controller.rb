@@ -26,6 +26,18 @@ include Magick
   end
 
 
+  def create_candidature
+    @candidature =Candidature.new(params[:candidature])
+    
+    if @candidature.valid?
+      MailingMailer.notif_candidate(@candidature).deliver
+      redirect_to(root_path, :notice => "Message was successfully sent.")
+    else
+      flash.now.alert = "Please fill all fields."
+      render :trial
+    end
+  end
+
 
 
   

@@ -10,10 +10,38 @@
     <h3 id="myModalLabel">Rejoignez les évadés</h3>
   </div>
   <div class="modal-body">
-    <p>A remplir...</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
+ <%= form_for @new_candidature, :url => candidature_path do |form| %>
+   <fieldset class="fields">
+     <div class="field">
+       <%= form.label :prenom %>
+       <%= form.text_field :prenom %>
+     </div>
+     <div class="field">
+       <%= form.label :nom %>
+       <%= form.text_field :nom %>
+     </div>   
+   <div class="field">
+     <%= form.label :age %><br />
+     <%= form.number_field :age %>
+   </div>          
+     <div class="field">
+       <%= form.label :email %>
+       <%= form.text_field :email %>
+     </div>
+   <div class="field">
+     <%= form.label :annees_exp_impro %><br />
+     <%= form.number_field :annees_exp_impro %>
+   </div>    
+     <div class="field">
+       <%= form.label :message %>
+       <%= form.text_area :message %>
+     </div>
+   </fieldset>
+   
+
+     <%= form.submit "Send", :class => 'btn btn-primary btn-danger' %>
+
+ <% end %>
   </div>
 </div>
+
