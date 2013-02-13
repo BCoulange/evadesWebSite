@@ -27,9 +27,11 @@
    
   		<li class="span4">
     		<div class="thumbnail">
-    				<div class="well"></div>
-      				<h3>Thumbnail label</h3>
-      				<p>Thumbnail caption...</p>
+
+<%= render 'mailings/home_form' %>
+
+<%= render 'widgets/join_modal' %>
+
     		</div>
   		</li>    
 	</ul>
@@ -38,11 +40,8 @@
 
 <div class="container-fluid">
 	<div class="row-fluid">
-    	<div class="span8 well">
+    	<div class="span12 well">
       	<!--Body content-->
-    	</div>
-       	<div class="span4 well">
-      	<%= render "application/side_bar" %>	
     	</div>
   	</div>
 </div>
