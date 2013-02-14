@@ -6,7 +6,8 @@ EvadesWebSite::Application.routes.draw do
 
   match 'mailings/0/sendNL', :to => 'mailings#sendNL', :as => :send_nl
   match 'mailings/0/importCsv', :to => 'mailings#importCsv', :as => :import_csv
-  
+  match 'mailings/0/destroyAll', :to => 'mailings#destroyAll', :as => :destroyAll
+    
 
 
 

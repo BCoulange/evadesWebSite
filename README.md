@@ -21,7 +21,7 @@
 - [x] Affiche générée à la volée pourles spectacles sans affiches
 - [x] Gallerie qui récupère les derniers albums sur Flickr
 - [x] Mise des images sur Amazon S3
-- [ ] Mailing lists
+- [x] Mailing lists
 - [x] Téléchargement des affiches
 - [x] Bouton « faire parti de la troupe »
 - [x] Formulaire de contact

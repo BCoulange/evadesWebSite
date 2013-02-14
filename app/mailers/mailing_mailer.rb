@@ -18,7 +18,9 @@ class MailingMailer < ActionMailer::Base
   end
 
 
-  def newsletter(spectacle,mailing)
+  def newsletter(spectacle,mailing,protocol, host)
+    @protocol = protocol
+    @host = host
     @spectacle = spectacle
     @mailing = mailing
     @lieu = @spectacle.lieu

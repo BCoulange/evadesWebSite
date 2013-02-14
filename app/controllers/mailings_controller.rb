@@ -88,10 +88,18 @@ before_filter :authenticate_user!
     end
   end
 
+def destroyAll
+  @mailings = Mailing.all
+  @mailings.each do |mailing|
+    mailing.destroy
+  end
+  redirect_to :back
+end
+
 def sendNL
   @spectacle=Spectacle.find_by_titre(params[:Spectacle])
   Mailing.all.each do |mailing|
-    MailingMailer.newsletter(@spectacle,mailing).deliver
+    MailingMailer.newsletter(@spectacle,mailing,request.protocol, request.host_with_port).deliver
   end
   flash[:notice] = "La newsletter est envoyée!" 
   redirect_to :back
@@ -100,8 +108,10 @@ end
 def importCsv
   emails = MailingImporter.importemails(params[:csv_file].read)
   emails.each do |email|
-    @m = Mailing.new(:email => email)
-    @m.save
+    unless Mailing.all.include? email then
+      @m = Mailing.new(:email => email)
+      @m.save
+    end
   end
   redirect_to :back
 

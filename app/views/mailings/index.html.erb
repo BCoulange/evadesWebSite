@@ -32,12 +32,16 @@
 
 <div class="form-inline">
   <%= form_tag(import_csv_path, :multipart => true) do %>
-    <div class="field">
       <%= file_field_tag :csv_file %>
-    </div>
+
       <%= submit_tag "importer csv"%>
   <% end %>
 </div>
 
 
+<div class="form-inline">
+  <%= form_tag(destroyAll_path) do %>
+      <%= submit_tag "Detruire tout!"%>
+  <% end %>
+</div>
 

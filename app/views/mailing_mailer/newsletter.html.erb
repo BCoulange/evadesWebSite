@@ -8,9 +8,16 @@
 
 <h2><%= @spectacle.titre %></h2>
 
+<%= image_tag @spectacle.affiche.url(:homePage) %>
+
 <p><%= @spectacle.message %></p>
 
-<p>Vous pourrez voir à l'oeuvre <%= @evades.map{|evade| evade.surnom}.join(",")%> !</p>
+<p>Vous pourrez voir à l'oeuvre <%= @evades.map{|evade| evade.surnom}.join(", ")%> !</p>
+
+<h3>Lieu : <%= @lieu.nom %> </h3>
+<p><%= @lieu.street %></p>
+<p><%= @lieu.city %></p>
+
 
   </body>
 </html>
