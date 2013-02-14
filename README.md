@@ -30,6 +30,7 @@
 - [x] Changement des noms des routes (lieus, users)
 - [ ] Mise en forme globale
 - [ ] Rappel pour la com
+- [ ] Gestion de Facebook
 
 
 # Liens 
