@@ -31,7 +31,7 @@ EvadesWebSite::Application.routes.draw do
   match "/photos/:id" => "photos#show", :as => :show_photos
 
 
-  resources :lieus, :as => :lieus
+  resources :lieus, :path => "lieux", :as => :lieus
 
 
   resources :spectacles do 
@@ -41,7 +41,7 @@ EvadesWebSite::Application.routes.draw do
   end
 
 
-  resources :users, :as => :users
+  resources :users, :path => "evades", :as => :users
 
 mount Ckeditor::Engine => "/ckeditor"
 
