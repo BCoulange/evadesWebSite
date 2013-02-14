@@ -9,4 +9,5 @@ class Spectacle < ActiveRecord::Base
 	attr_accessible :affiche
   has_attached_file :affiche, :styles => { :homePage => "350x495>", :showPage => "700x990>" }
 
+
 end

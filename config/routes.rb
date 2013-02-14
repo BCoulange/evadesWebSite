@@ -31,7 +31,11 @@ EvadesWebSite::Application.routes.draw do
   resources :lieus, :as => :lieus
 
 
-  resources :spectacles
+  resources :spectacles do 
+    member do
+      get :download
+    end
+  end
 
 
   resources :users, :as => :users

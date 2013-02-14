@@ -22,7 +22,7 @@
 - [x] Gallerie qui récupère les derniers albums sur Flickr
 - [x] Mise des images sur Amazon S3
 - [ ] Mailing lists
-- [ ] Téléchargement des affiches
+- [x] Téléchargement des affiches
 - [x] Bouton « faire parti de la troupe »
 - [ ] Formulaire de contact
 - [ ] Gestion des news
