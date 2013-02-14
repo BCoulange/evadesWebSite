@@ -27,7 +27,7 @@
 - [x] Formulaire de contact
 - [ ] Gestion des news
 - [ ] Roles administrateur
-- [ ] Changement des noms des routes (lieus, users)
+- [x] Changement des noms des routes (lieus, users)
 - [ ] Mise en forme globale
 - [ ] Rappel pour la com
 
