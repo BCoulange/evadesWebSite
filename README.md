@@ -23,7 +23,7 @@
 - [x] Mise des images sur Amazon S3
 - [ ] Mailing lists
 - [ ] Téléchargement des affiches
-- [ ] Bouton « faire parti de la troupe »
+- [x] Bouton « faire parti de la troupe »
 - [ ] Formulaire de contact
 - [ ] Gestion des news
 - [ ] Roles administrateur
