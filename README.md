@@ -24,7 +24,7 @@
 - [ ] Mailing lists
 - [x] Téléchargement des affiches
 - [x] Bouton « faire parti de la troupe »
-- [ ] Formulaire de contact
+- [x] Formulaire de contact
 - [ ] Gestion des news
 - [ ] Roles administrateur
 - [ ] Changement des noms des routes (lieus, users)

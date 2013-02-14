@@ -1,5 +1,32 @@
 <h1>Contactez nous!</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+
+ <%= form_for @new_contact, :url => contact_path do |form| %>
+   <fieldset class="fields">
+     <div class="field">
+       <%= form.label :prenom %>
+       <%= form.text_field :prenom %>
+     </div>
+     <div class="field">
+       <%= form.label :nom %>
+       <%= form.text_field :nom %>
+     </div>   
+   <div class="field">
+     <%= form.label :entreprise %><br />
+     <%= form.text_field :entreprise %>
+   </div>          
+     <div class="field">
+       <%= form.label :email %>
+       <%= form.text_field :email %>
+     </div>
+     <div class="field">
+       <%= form.label :message %>
+       <%= form.text_area :message %>
+     </div>
+   </fieldset>
+     <%= form.submit "Send", :class => 'btn btn-primary btn-danger' %>
+
+ <% end %>
+   
 
 <div id="myCarousel" class="carousel slide">
   <!-- Carousel items -->

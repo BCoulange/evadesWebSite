@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+		<h1>Nouveau contact sur le site!</h1>
+		<h3><%=@contact.prenom%> <%=@contact.nom%></h3>
+		<p><%= @contact.entreprise %><p>
+		<h4> Message : </h4>
+		<%= @contact.message %>
+		<p> Mail de contact : <%= @contact.email %>
+  </body>
+</html>

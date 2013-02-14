@@ -11,4 +11,9 @@ class MailingMailer < ActionMailer::Base
   	@candidature = candidature
     mail(:to => ENV["CONTACT_MAIL"], :subject => "[EDLRB] Nouvelle candidature!") 	
   end
+
+  def notif_contact(contact)
+    @contact = contact
+    mail(:to => ENV["CONTACT_MAIL"], :subject => "[EDLRB] Contact sur le site!")   
+  end
 end

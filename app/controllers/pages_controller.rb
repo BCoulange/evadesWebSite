@@ -12,8 +12,20 @@ include Magick
   end
 
   def contact
+    @new_contact=Contact.new
   end
 
+  def create_contact
+    @contact =Contact.new(params[:contact])
+    
+    if @contact.valid?
+      MailingMailer.notif_contact(@contact).deliver
+      redirect_to(root_path, :notice => "Message was successfully sent.")
+    else
+      flash.now.alert = "Please fill all fields."
+      render :trial
+    end
+  end
 
   def principe
   end
