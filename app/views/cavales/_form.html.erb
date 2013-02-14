@@ -16,9 +16,14 @@
     <%= f.text_field :titre %>
   </div>
   <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_field :message %>
+    <%= f.label :message %>
+    <%= f.cktext_area :message, :ckeditor => {:language => "fr", :toolbar => "mini"}%>
   </div>
+  <div class="field">
+    <%= f.label :post_date %>
+    <%= datetime_select :cavale, :post_date %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,5 +1,5 @@
     <h1><%= cavale.titre %></h1>
-    <p><%= cavale.message %></p>
+    <p><%= cavale.message.html_safe %></p>
     <div class="btn-group">
   <button class="btn"><%= link_to 'Show', cavale %></button>
   <button class="btn"><%= link_to 'Edit', edit_cavale_path(cavale) %></button>

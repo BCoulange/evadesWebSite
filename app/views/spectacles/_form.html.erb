@@ -36,7 +36,6 @@
   <%= f.file_field :affiche %>
 </div>
 
-
   <div class="field">
   <%= f.label :evades %>
   <%= collection_select(:spectacle, :user_ids, @users, :id, :surnom, {:prompt => " "}, { :multiple => true })%>

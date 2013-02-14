@@ -3,7 +3,11 @@ require 'will_paginate/array'
   # GET /cavales
   # GET /cavales.json
   def index
-    @cavales = Cavale.all
+    @cavales = Cavale.all.sort_by{|s| s.post_date}
+    @no_posted = @cavales
+    @no_posted = @no_posted.reject{ |s| (s.post_date-DateTime.now)<0 }
+    @cavales = @cavales.reject{ |s| (s.post_date-DateTime.now)>0 }
+
     @cavales=@cavales.paginate(:page => params[:page],:per_page => 5)
 
     respond_to do |format|

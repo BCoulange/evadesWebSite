@@ -7,8 +7,8 @@ include Magick
     @spectacles=Spectacle.all
     @prochain_s=@spectacles.sort_by{|s| s.start_time}.reject{ |s| (s.start_time-DateTime.now)<0 }[0] unless @spectacles.empty?
     @has_affiche=!@prochain_s.nil?
-    @news=New
-   # @cavales = 
+    @cavales = Cavale.all.sort_by{|s| s.post_date}
+    @cavales = @cavales.reject{ |s| (s.post_date-DateTime.now)>0 }[0..2]
     render :layout => 'homepage'
   end
 

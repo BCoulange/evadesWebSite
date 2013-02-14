@@ -25,7 +25,7 @@
 - [x] Téléchargement des affiches
 - [x] Bouton « faire parti de la troupe »
 - [x] Formulaire de contact
-- [ ] Gestion des news
+- [x] Gestion des news
 - [ ] Roles administrateur
 - [x] Changement des noms des routes (lieus, users)
 - [ ] Mise en forme globale

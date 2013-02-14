@@ -1,7 +1,15 @@
+<% unless @no_posted.empty? then %>
+<div class="well">
+  <p class="lead">Pas encore posté</p>
 
+<%= render :partial=>"display_messages", :collection =>@no_posted, :as => :cavale %>
+</div>
+<% end %>
 <%= render :partial=>"display_messages", :collection =>@cavales, :as => :cavale %>
 
 
 <br />
+
+<%= will_paginate @cavales %>
 
 <%= link_to 'New Cavale', new_cavale_path %>

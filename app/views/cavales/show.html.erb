@@ -1,14 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Titre:</b>
-  <%= @cavale.titre %>
-</p>
+<%= render :partial=>"display_messages", :locals => { :cavale => @cavale }%>
 
-<p>
-  <b>Message:</b>
-  <%= @cavale.message %>
-</p>
+
 
 
 <%= link_to 'Edit', edit_cavale_path(@cavale) %> |
