@@ -1,5 +1,8 @@
 class CavalesController < ApplicationController
 require 'will_paginate/array'
+
+    before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /cavales
   # GET /cavales.json
   def index
