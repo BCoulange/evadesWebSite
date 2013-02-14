@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212181852) do
+ActiveRecord::Schema.define(:version => 20130214214512) do
 
   create_table "affiche_templates", :force => true do |t|
     t.integer  "teaserwidth"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20130212181852) do
     t.integer  "fond_file_size"
     t.datetime "fond_updated_at"
     t.string   "nom"
+  end
+
+  create_table "cavales", :force => true do |t|
+    t.string   "titre"
+    t.string   "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -66,6 +73,13 @@ ActiveRecord::Schema.define(:version => 20130212181852) do
   create_table "mailings", :force => true do |t|
     t.string   "nom"
     t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "titre"
+    t.string   "message"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

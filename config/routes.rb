@@ -2,6 +2,9 @@ EvadesWebSite::Application.routes.draw do
 
 
 
+  resources :cavales
+
+
   resources :mailings, :except => :new
 
   match 'mailings/0/sendNL', :to => 'mailings#sendNL', :as => :send_nl

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Titre:</b>
+  <%= @cavale.titre %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @cavale.message %>
+</p>
+
+
+<%= link_to 'Edit', edit_cavale_path(@cavale) %> |
+<%= link_to 'Back', cavales_path %>

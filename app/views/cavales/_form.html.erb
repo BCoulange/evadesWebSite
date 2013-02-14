@@ -1,0 +1,25 @@
+<%= form_for(@cavale) do |f| %>
+  <% if @cavale.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cavale.errors.count, "error") %> prohibited this cavale from being saved:</h2>
+
+      <ul>
+      <% @cavale.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titre %><br />
+    <%= f.text_field :titre %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_field :message %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
