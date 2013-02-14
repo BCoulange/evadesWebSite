@@ -16,4 +16,11 @@ class MailingMailer < ActionMailer::Base
     @contact = contact
     mail(:to => ENV["CONTACT_MAIL"], :subject => "[EDLRB] Contact sur le site!")   
   end
+
+
+  def newsletter(spectacle,mailing)
+    @spectacle = spectacle
+    @mailing = mailing
+    mail(:to => @mailing.email, :subject => "[EDLRB] Nouveau spectacle!")       
+  end
 end

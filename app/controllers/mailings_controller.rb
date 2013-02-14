@@ -88,6 +88,14 @@ before_filter :authenticate_user!
     end
   end
 
+def sendNL
+  @spectacle=Spectacle.find_by_titre(params[:Spectacle])
+  Mailing.all.each do |mailing|
+    MailingMailer.newsletter(@spectacle,mailing).deliver
+  end
+  flash[:notice] = "La newsletter est envoyée!" 
+  redirect_to :back
+end
 
 
 

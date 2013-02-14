@@ -1,3 +1,12 @@
+<h1> Envoyer la mailing list </h1>
+    <div  class="form-inline"><%= form_tag(send_nl_path, :method => :get) do %>
+
+   <%=   select_tag("Spectacle", options_for_select(Spectacle.all.sort_by{|s| s.start_time}.reject{ |s| (s.start_time-DateTime.now)<0 }.map{|s| s.titre}))%>
+
+      <%= submit_tag "Envoyer!"%>
+    <% end %></div>
+
+
 <h1>Liste des inscrits</h1>
 
 <%= render 'form' %>
