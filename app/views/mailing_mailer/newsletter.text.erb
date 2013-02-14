@@ -1,1 +1,8 @@
-Ceci est la newsletter
+Un nouveau spectacle des Evadés de la rue Barrow le <%=  @spectacle.start_time.mday.to_s+"/"+@spectacle.start_time.mon.to_s+"/"+@spectacle.start_time.year.to_s %> à <%= @spectacle.start_time.hour %>!
+
+Titre : <%= @spectacle.titre %>
+
+Description : 
+<%= @spectacle.message %>
+
+Vous pourrez voir à l'oeuvre <% @evades.map{|evade| evade.surnom}.join(",")%> !

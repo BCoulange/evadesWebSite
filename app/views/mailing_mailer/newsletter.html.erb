@@ -4,7 +4,13 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>WPROUT!</h1>
-<p> Ceci est la newsletter </p>
+<p>Un nouveau spectacle des Evadés de la rue Barrow le <%=  @spectacle.start_time.mday.to_s+"/"+@spectacle.start_time.mon.to_s+"/"+@spectacle.start_time.year.to_s %> à <%= @spectacle.start_time.hour %>!</p>
+
+<h2><%= @spectacle.titre %></h2>
+
+<p><%= @spectacle.message %></p>
+
+<p>Vous pourrez voir à l'oeuvre <%= @evades.map{|evade| evade.surnom}.join(",")%> !</p>
+
   </body>
 </html>

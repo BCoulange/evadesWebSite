@@ -21,6 +21,8 @@ class MailingMailer < ActionMailer::Base
   def newsletter(spectacle,mailing)
     @spectacle = spectacle
     @mailing = mailing
+    @lieu = @spectacle.lieu
+    @evades = @spectacle.users
     mail(:to => @mailing.email, :subject => "[EDLRB] Nouveau spectacle!")       
   end
 end
