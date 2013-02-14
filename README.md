@@ -29,6 +29,7 @@
 - [ ] Roles administrateur
 - [ ] Changement des noms des routes (lieus, users)
 - [ ] Mise en forme globale
+- [ ] Rappel pour la com
 
 
 # Liens 
