@@ -1,24 +1,21 @@
-  <div class="form-inline">
-<%= form_for(@new_mailing) do |f| %>
-  <% if @new_mailing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@new_mailing.errors.count, "error") %> prohibited this mailing from being saved:</h2>
+<div class="form-inline">
+  <%= form_for(@new_mailing) do |f| %>
+    <% if @new_mailing.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@new_mailing.errors.count, "error") %> prohibited this mailing from being saved:</h2>
 
-      <ul>
-      <% @new_mailing.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
+        <ul>
+          <% @new_mailing.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <%= f.text_field :nom, :placeholder => "nom" %>
 
     <%= f.text_field :email ,:placeholder => "email"%>
 
-
     <%= f.submit nil , :class => 'btn btn-primary'%>
-<% end %>
-  </div>
+  <% end %>
+</div>

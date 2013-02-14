@@ -2,9 +2,10 @@ EvadesWebSite::Application.routes.draw do
 
 
 
-  resources :mailings, :except => :new 
+  resources :mailings, :except => :new
 
   match 'mailings/0/sendNL', :to => 'mailings#sendNL', :as => :send_nl
+  match 'mailings/0/importCsv', :to => 'mailings#importCsv', :as => :import_csv
   
 
 

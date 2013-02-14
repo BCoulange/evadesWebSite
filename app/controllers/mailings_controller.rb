@@ -97,6 +97,16 @@ def sendNL
   redirect_to :back
 end
 
+def importCsv
+  emails = MailingImporter.importemails(params[:csv_file].read)
+  emails.each do |email|
+    @m = Mailing.new(:email => email)
+    @m.save
+  end
+  redirect_to :back
+
+end
+
 
 
 end
