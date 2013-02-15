@@ -1,13 +1,13 @@
 <%= render "standard_before_body" %>
-<%= render "application/nav_bar" %>	
 <%= bootstrap_flash %>
 	<div class="row-fluid">
+       	<div class="span4 well">
+      	<%= render "application/side_bar" %>	
+    	</div>
     	<div class="span8 well">
       	<%= yield %>
     	</div>
 
-       	<div class="span4 well">
-      	<%= render "application/side_bar" %>	
-    	</div>
+
     </div>
 <%= render "standard_after_body" %>
