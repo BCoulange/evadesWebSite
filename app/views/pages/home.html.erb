@@ -50,7 +50,7 @@
             </div>
             <div class="span4">
               <h3><%= link_to @prochain_s.titre, @prochain_s %></h3>
-              <h4><%=  @prochain_s.start_time.mday.to_s+"/"+@prochain_s.start_time.mon.to_s+"/"+@prochain_s.start_time.year.to_s%></h4>
+              <h4><%=  @prochain_s.start_time.mday.to_s+"/"+@prochain_s.start_time.mon.to_s+"/"+@prochain_s.start_time.year.to_s%> à <%=@prochain_s.start_time.hour%>h<%=@prochain_s.start_time.min.to_s.rjust(2, '0')%> </h4>
       				<p><%= @prochain_s.teaser.html_safe %></p>
               <p><%= link_to "Lire la suite >>>", @prochain_s%></p>
             </div>
