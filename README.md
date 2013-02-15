@@ -35,6 +35,7 @@
 - [ ] Inclure les présentations d'évadés
 - [ ] gestion des Petits, papiers, flechages et autres ressources
 - [ ] Générateur de Flyer
+
 ## v1.1
 - [ ] Résumés des réunions CA sur le site web
 - [ ] Envoi de mail du résumé
