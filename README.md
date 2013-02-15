@@ -33,6 +33,7 @@
 - [ ] Gestion de Facebook
 - [ ] Inclure les présentations d'évadés
 - [ ] gestion des Petits, papiers, flechages et autres ressources
+- [ ] Générateur de Flyer
 
 
 # Liens 
