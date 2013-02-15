@@ -11,9 +11,9 @@
     <td><%= lieu.nom %></td>
     <td>
 <div class="btn-group">
-  <button class="btn"><%= link_to 'Voir', lieu %></button>
-    <button class="btn"><%= link_to 'Editer', edit_lieu_path(lieu) %></button>
-    <button class="btn"><%= link_to 'Supprimer', lieu, method: :delete, data: { confirm: 'Êtes-vous sur?' } %></button>
+  <button class="btn btn-primary"><%= link_to 'Voir', lieu %></button>
+    <button class="btn btn-primary"><%= link_to 'Editer', edit_lieu_path(lieu) %></button>
+    <button class="btn btn-primary"><%= link_to 'Supprimer', lieu, method: :delete, data: { confirm: 'Êtes-vous sur?' } %></button>
   </td>
   </tr>
 <% end %>
@@ -24,7 +24,7 @@
 
 <br />
 
- <button class="btn btn-new"><%= link_to 'New Lieu', new_lieu_path %></button>
+ <button class="btn btn-new btn-primary"><%= link_to 'New Lieu', new_lieu_path %></button>
 
 
 
