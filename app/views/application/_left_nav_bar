@@ -1,6 +1,10 @@
-	<%= image_tag "luneMenu.png", :class => "brand"%>
 
+<%= link_to (image_tag 'luneMenu.png'), home_page_path , :class => "brand"%>
+<div class="pull-right">
+<%= render 'application/su_menu' %>
+</div>
 <div class="well">
+
     <ul class="nav nav-list ">
       <li><%= link_to "home", home_page_path %></li>
       <li><%= link_to "Spectacles", spectacles_path %></li>   
@@ -13,32 +17,9 @@
     </ul>
 
 
-<div class="dropdown pull-right">
-  <button class="btn dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-<% if user_signed_in? %>
-    <li><%= link_to 'Gestion de la mailing list', mailings_path %></li>    
-    <li><%= link_to 'Gestion des spectacles', spectacles_path %></li>
-    <li><%= link_to 'Gestion des lieux', lieus_path %></li>
-    <li><%= link_to 'Gestion des Evadés', users_path %></li>
-    <li class="divider"></li>
-    <li><%= link_to 'Nouveau spectacle', new_spectacle_path %></li>
-    <li><%= link_to 'Nouveau lieu', new_lieu_path %></li>
-    <li><%= link_to 'Nouvel Evadé', new_user_path %></li>
-    <li class="divider"></li>
-    <li><%= link_to 'Générateur d\'affiches', affiche_templates_path %></li> 
-     <li class="divider"></li>
-   <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete %></li>  
-<% else %>
-  <li><%= link_to "Se connecter", "login" %></li>
-<%end%>
-  </ul>
+
 
 
 </div>
-</div>
-
 
 

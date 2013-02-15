@@ -14,28 +14,12 @@
   <button class="btn btn-primary"><%= link_to "Principe", principe_page_path %></button>
   <button class="btn btn-primary"><%= link_to "Contact", contact_page_path %></button>
   <button class="btn btn-primary"><%= link_to "Galerie", photos_path %></button>
-    <button class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu pull-right">
-    <% if user_signed_in? %>
-    <li><%= link_to 'Gestion de la mailing list', mailings_path %></li>    
-    <li><%= link_to 'Gestion des spectacles', spectacles_path %></li>
-    <li><%= link_to 'Gestion des lieux', lieus_path %></li>
-    <li><%= link_to 'Gestion des Evadés', users_path %></li>
-    <li class="divider"></li>
-    <li><%= link_to 'Nouveau spectacle', new_spectacle_path %></li>
-    <li><%= link_to 'Nouveau lieu', new_lieu_path %></li>
-    <li><%= link_to 'Nouvel Evadé', new_user_path %></li>
-    <li class="divider"></li>
-    <li><%= link_to 'Générateur d\'affiches', affiche_templates_path %></li> 
-     <li class="divider"></li>
-   <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete %></li>  
-<% else %>
-  <li><%= link_to "Se connecter", "login" %></li>
-<%end%>
+ 
+
 
 </div>
+
+<%= render 'application/su_menu' %>
 </div>
 
 <%= bootstrap_flash %>
