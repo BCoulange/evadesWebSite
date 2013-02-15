@@ -147,3 +147,38 @@ a:focus {
   background-clip: padding-box;
   outline: none;
 }
+
+
+
+.btn-danger {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #440f0f;
+  background-image: -moz-linear-gradient(top, #440f0f, #5b1717);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#440f0f), to(#5b1717));
+  background-image: -webkit-linear-gradient(top, #440f0f, #5b1717);
+  background-image: -o-linear-gradient(top, #440f0f, #5b1717);
+  background-image: linear-gradient(to bottom, #440f0f, #5b1717);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff440f0f', endColorstr='#ff440f0f', GradientType=0);
+  border-color: #440f0f #440f0f #5b1717;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #440f0f;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.btn-danger.disabled,
+.btn-danger[disabled] {
+  color: #ffffff;
+  background-color: #5b1717;
+  *background-color: #5b1717;
+}
+.btn-danger:active,
+.btn-danger.active {
+  background-color: #5b1717 \9;
+}
