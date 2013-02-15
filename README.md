@@ -31,6 +31,7 @@
 - [ ] Mise en forme globale
 - [ ] Rappel pour la com
 - [ ] Gestion de Facebook
+- [ ] Inclure les présentations d'évadés
 
 
 # Liens 
