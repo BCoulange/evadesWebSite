@@ -39,44 +39,41 @@
 </div>
 
 <%= bootstrap_flash %>
-
+<div class="container-fluid">
 	<ul class="thumbnails">
-  		<li class="span8">
-    		<div class="thumbnail">
-    			
-            <% unless @prochain_s.nil? %>
-            <div class="well">
-                <h3><%= link_to @prochain_s.titre, @prochain_s %></h3>
-                <h4><%=  @prochain_s.start_time.mday.to_s+"/"+@prochain_s.start_time.mon.to_s+"/"+@prochain_s.start_time.year.to_s      %></h4></div>
-                <div class="row">
-                <div class="span3">
-                <%= image_tag @prochain_s.affiche.url(:homePage) %>
-                </div>
-                <div class="span4">
+  	<li class="span8">
+    	<div class="thumbnail">		
+        <% unless @prochain_s.nil? %>
+          <div class="row">
+            <div class="span3">
+              <%= image_tag @prochain_s.affiche.url(:homePage) %>
+            </div>
+            <div class="span4">
+              <h3><%= link_to @prochain_s.titre, @prochain_s %></h3>
+              <h4><%=  @prochain_s.start_time.mday.to_s+"/"+@prochain_s.start_time.mon.to_s+"/"+@prochain_s.start_time.year.to_s%></h4>
       				<p><%= @prochain_s.teaser.html_safe %></p>
-                </div>
-              </div>
-            <% end %>
-    		</div>
-  		</li>
-   
-  		<li class="span4">
-    		<div class="thumbnail">
-
-<%= render 'mailings/home_form' %>
-
-<%= render 'widgets/join_modal' %>
-<%= render "widgets/spectacle_calendar" %>  
-
-    		</div>
-  		</li>    
+              <p><%= link_to "Lire la suite >>>", @prochain_s%></p>
+            </div>
+          </div>
+        <% end %>
+    	</div>
+  	</li>
+    <li class="span3">
+    	<div class="well">
+        <%= render 'mailings/home_form' %>
+        <%= render 'widgets/join_modal' %>
+    	</div>
+  	</li>    
 	</ul>
-
+</div>
 
 
 <div class="container-fluid">
 	<div class="row-fluid">
     	<div class="span12 well">
+<div class="page-header">
+<h2> Dernières nouvelles de la cavale </h2>
+</div>
       	<%= render :partial=>"cavales/display_messages", :collection =>@cavales, :as => :cavale %>
     	</div>
   	</div>
