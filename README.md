@@ -36,3 +36,4 @@
 
 # Liens 
 * Formulaire de contact léger : http://matharvard.ca/posts/2011/aug/22/contact-form-in-rails-3/
+* Gestion de Facebook : http://horserumble.com/creating-facebook-events-with-koala
