@@ -1,18 +1,15 @@
 	<%= image_tag "luneMenu.png", :class => "brand"%>
 
 <div class="well">
-    <ul class="nav nav-list">
-      <li class="nav-header"><%= link_to "home", home_page_path %></li>
-      <li class="nav-header"><%= link_to "Spectacles", spectacles_path %></li>   
-      <li>Prochain spectacle</li>
-      <li>Spectacles à venir</li>
-      <li>Précédents Spectacles</li>
-      <li class="nav-header"><%= link_to "News", cavales_path %></li>       
-      <li class="nav-header"><%= link_to "Contact", contact_page_path %></li>
-      <li class="nav-header"><%= link_to "Qui sommes nous?", users_path%></li>
-      <li class="nav-header"><%= link_to "Nos planques", lieus_path %></li>
-      <li class="nav-header"><%= link_to "Principe", principe_page_path %></li>
-      <li class="nav-header"><%= link_to "Galerie", photos_path %></li>         
+    <ul class="nav nav-list ">
+      <li><%= link_to "home", home_page_path %></li>
+      <li><%= link_to "Spectacles", spectacles_path %></li>   
+      <li><%= link_to "News", cavales_path %></li>       
+      <li><%= link_to "Contact", contact_page_path %></li>
+      <li><%= link_to "Qui sommes nous?", users_path%></li>
+      <li><%= link_to "Nos planques", lieus_path %></li>
+      <li><%= link_to "Principe", principe_page_path %></li>
+      <li><%= link_to "Galerie", photos_path %></li>         
     </ul>
 
 
