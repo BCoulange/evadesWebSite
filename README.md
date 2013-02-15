@@ -9,6 +9,7 @@
 `AWS_SECRET_ACCESS_KEY: "MY_AMAZON_SECRET"`  
 
 # TODO
+## v1 : 
 - [x] Gestion des évadés + page d'évadé
 - [x] Gestion des spectacles + page de spectacle
 - [x] Gestion des lieux + page de lieu
@@ -34,6 +35,9 @@
 - [ ] Inclure les présentations d'évadés
 - [ ] gestion des Petits, papiers, flechages et autres ressources
 - [ ] Générateur de Flyer
+## v1.1
+- [ ] Résumés des réunions CA sur le site web
+- [ ] Envoi de mail du résumé
 
 
 # Liens 
