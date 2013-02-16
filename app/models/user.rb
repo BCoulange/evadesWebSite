@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
 #  validates :avatar, :attachment_presence => true        
 
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :nom, :prenom, :surnom, :spectacle_ids

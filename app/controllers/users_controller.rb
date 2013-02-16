@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-    before_filter :authenticate_user!, :except => [:index, :show]
-
+  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :only_admin, :only => [:create, :destroy, :promote_admin]
   before_filter :get_spectacles
 
   # GET /users
@@ -98,5 +98,9 @@ class UsersController < ApplicationController
       @user.update_attribute :admin, !@user.admin
       redirect_to :back
     end
+
+  def only_admin
+    redirect_to root_path unless current_user.try(:admin?)
+  end
 
 end

@@ -78,13 +78,6 @@ ActiveRecord::Schema.define(:version => 20130216204702) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "news", :force => true do |t|
-    t.string   "titre"
-    t.string   "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "spectacles", :force => true do |t|
     t.string   "titre"
     t.string   "message"
@@ -127,7 +120,6 @@ ActiveRecord::Schema.define(:version => 20130216204702) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "role"
     t.boolean  "admin",                  :default => false
   end
 

@@ -12,6 +12,7 @@
 <% if (user == current_user) || current_user.try(:admin?)%>
   				<button class="btn btn-primary"><%= link_to 'Edit', edit_user_path(user) %></button>
 <% end %>
+    <% unless user==current_user%>
 <% if current_user.try(:admin?)%>
   				<button class="btn btn-primary"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button>
           <% if user.try(:admin?)%>
@@ -19,13 +20,11 @@
           <% else %>
             <button class="btn btn-primary"><%= link_to 'Promote admin', promote_admin_user_path(user) %></button>
           <% end %>
+          <% end%>
 
 <%end%>
 
       	</div>
-<% if user.try(:admin?)%>
-<small>ADMIN</small>
-<%end%>
 
 <% end %>
       </center>
