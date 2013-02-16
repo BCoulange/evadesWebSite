@@ -28,7 +28,10 @@
 </span>
 
 <br />
+ <% if user_signed_in? %>
+
 <button class="btn btn-primary">
 <%= link_to 'Nouveau Evadé', new_user_path %>
 </button>
 
+<% end %>

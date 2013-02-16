@@ -5,11 +5,15 @@
     <td><%= user.surnom %></td>
     <td><%= user.spectacles.count %></td>
     <td>
+       <% if user_signed_in? %>
+
       <div class="btn-group">
   <button class="btn"><%= link_to 'Voir', user %></button>
   <button class="btn"><%= link_to 'Edit', edit_user_path(user) %></button>
   <button class="btn"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button>
     </div>
+ <% end %>
+
 </td>     </tr>
 
 

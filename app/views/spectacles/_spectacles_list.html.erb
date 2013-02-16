@@ -5,8 +5,10 @@
     <td>
       <div class="btn-group">
   <button class="btn btn-primary"><%= link_to 'Voir', spectacle %></button>
+<% if user_signed_in? %>
   <button class="btn btn-primary"><%= link_to 'Edit', edit_spectacle_path(spectacle) %></button>
   <button class="btn btn-primary"><%= link_to 'Destroy', spectacle, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<% end %>
     </div>
     </td>
   </tr>

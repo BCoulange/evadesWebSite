@@ -2,36 +2,39 @@
 <h1>Nos planques</h1>
 </div>
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>Nom</th>
-    <th></th>
-  </tr>
-</thead>
-<tbody>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
 
-<% @lieus.each do |lieu| %>
-  <tr>
-    <td><%= lieu.nom %></td>
-    <td>
-<div class="btn-group">
-  <button class="btn btn-primary"><%= link_to 'Voir', lieu %></button>
-    <button class="btn btn-primary"><%= link_to 'Editer', edit_lieu_path(lieu) %></button>
-    <button class="btn btn-primary"><%= link_to 'Supprimer', lieu, method: :delete, data: { confirm: 'Êtes-vous sur?' } %></button>
-  </td>
-  </tr>
-<% end %>
-</tbody>
-</table>
+      <% @lieus.each do |lieu| %>
+      <tr>
+        <td><%= lieu.nom %></td>
+        <td>
+          <div class="btn-group">
+            <button class="btn btn-primary"><%= link_to 'Voir', lieu %></button>
+            <% if user_signed_in? %>
+              <button class="btn btn-primary"><%= link_to 'Editer', edit_lieu_path(lieu) %></button>
+              <button class="btn btn-primary"><%= link_to 'Supprimer', lieu, method: :delete, data: { confirm: 'Êtes-vous sur?' } %></button>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <%= gmaps4rails(@jsonGmaps) %>
 
 
 <br />
-
+<% if user_signed_in? %>
  <button class="btn btn-new btn-primary"><%= link_to 'New Lieu', new_lieu_path %></button>
-
+<% end %>
 
 
 

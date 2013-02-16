@@ -1,10 +1,11 @@
 <div class="well">
     <h3><%= cavale.titre %></h3>
     <p><%= cavale.message.html_safe %></p>
+<% if user_signed_in? %>
     <div class="btn-group">
   <button class="btn btn-primary"><%= link_to 'Show', cavale %></button>
   <button class="btn btn-primary"><%= link_to 'Edit', edit_cavale_path(cavale) %></button>
   <button class="btn btn-primary"><%= link_to 'Destroy', cavale, method: :delete, data: { confirm: 'Are you sure?' } %></button>
 </div>
-
+<% end %>
 </div>

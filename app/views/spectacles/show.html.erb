@@ -32,4 +32,7 @@
  <%= render :partial=>"users/small_avatar_list", :collection =>@spectacle.users, :as => :user %>
 </div></div>
 </br>
+ <% if user_signed_in? %>
+
 <button class="btn btn-primary"><%= link_to "Télécharger l'affiche", @spectacle.affiche.url(:original, false) %></button>
+<% end %>

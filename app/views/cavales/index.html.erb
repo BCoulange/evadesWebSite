@@ -13,5 +13,7 @@
 <br />
 
 <%= will_paginate @cavales %>
+ <% if user_signed_in? %>
 
 <%= link_to 'New Cavale', new_cavale_path %>
+<% end %>
