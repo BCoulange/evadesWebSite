@@ -22,6 +22,7 @@ EvadesWebSite::Application.routes.draw do
   match 'pages/contact', :to => 'pages#contact', :as => :contact_page
   match 'pages/principe', :to => 'pages#principe', :as => :principe_page
   match 'pages/galerie', :to => 'pages#galerie', :as => :galerie_page
+  match 'pages/login', :to => redirect("/login")
 
   match 'candidature' => 'pages#candidature', :as => 'candidature', :via => :get
   match 'candidature' => 'pages#create_candidature', :as => 'candidature', :via => :post
