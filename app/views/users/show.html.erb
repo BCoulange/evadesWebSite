@@ -1,6 +1,9 @@
+<div class="page-header">
+<h1><%= @user.surnom %></h1>
+</div>
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:large) %>
 
 
 <p>
@@ -10,10 +13,7 @@
 
 
 
-<p>
-  <b>Surnom:</b>
-  <%= @user.surnom %>
-</p>
+
 
 <p>
   <b>Prenom:</b>
@@ -21,12 +21,11 @@
 </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
 
 <br>
 
-<h3>Cet Évadé a participé à <%= @user.spectacles.count %> spectacles : </h3>
+<h3>Casier judiciaire, <%= @user.spectacles.count %> spectacles : </h3>
 <table class="table table-striped">
     <thead>
 <%= render "spectacles/spectacles_list_head" %>
@@ -36,3 +35,6 @@
 </tbody>
 
 </table>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', :back %>
