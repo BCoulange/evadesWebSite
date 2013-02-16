@@ -18,9 +18,10 @@
        <%= form.label :email %>
        <%= form.text_field :email %>
      </div>
+
      <div class="field">
        <%= form.label :message %>
-       <%= form.text_area :message %>
+       <%= form.text_area :message, :class => "input-xxlarge" %>
      </div>
    </fieldset>
      <%= form.submit "Send", :class => 'btn btn-primary btn-danger' %>
