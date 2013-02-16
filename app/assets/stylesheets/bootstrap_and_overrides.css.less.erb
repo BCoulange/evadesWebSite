@@ -266,14 +266,12 @@ a:focus {
 .fond-barrault {
   background-color: #20203f;
 <%@number=10;%>
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, <%=(1..@number).map { |i| "color-stop(#{1.to_f/(2*@number.to_f)*2*i}, rgba(0, 0, 0, 0.15)), color-stop(#{1.to_f/(2*@number.to_f)*2*i}, transparent) color-stop(#{1.to_f/(2*@number.to_f)*(2*i+1)}, transparent), color-stop(#{1.to_f/(2*@number.to_f)*(2*i+1)}, rgba(0, 0, 0, 0.15))"}.join(",")%>);
   background-image: -webkit-linear-gradient(355deg, <%=(1..@number).map { |i| "rgba(0, 0, 0, 0.15) #{100/(2*@number)*2*i}%, transparent #{100/(2*@number)*2*i}%, transparent #{100/(2*@number)*(2*i+1)}%, rgba(0, 0, 0, 0.15) #{100/(2*@number)*(2*i+1)}%"}.join(",")%>);
+  background-image: -moz-linear-gradient(355deg, <%=(1..@number).map { |i| "rgba(0, 0, 0, 0.15) #{100/(2*@number)*2*i}%, transparent #{100/(2*@number)*2*i}%, transparent #{100/(2*@number)*(2*i+1)}%, rgba(0, 0, 0, 0.15) #{100/(2*@number)*(2*i+1)}%"}.join(",")%>);
+  background-image: -o-linear-gradient(355deg, <%=(1..@number).map { |i| "rgba(0, 0, 0, 0.15) #{100/(2*@number)*2*i}%, transparent #{100/(2*@number)*2*i}%, transparent #{100/(2*@number)*(2*i+1)}%, rgba(0, 0, 0, 0.15) #{100/(2*@number)*(2*i+1)}%"}.join(",")%>);
+  background-image: linear-gradient(355deg, <%=(1..@number).map { |i| "rgba(0, 0, 0, 0.15) #{100/(2*@number)*2*i}%, transparent #{100/(2*@number)*2*i}%, transparent #{100/(2*@number)*(2*i+1)}%, rgba(0, 0, 0, 0.15) #{100/(2*@number)*(2*i+1)}%"}.join(",")%>);
 
-/*  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(0, 0, 0, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(0, 0, 0, 0.15)), color-stop(0.75, rgba(0, 0, 0, 0.15)), color-stop(0.75, transparent), to(transparent));
-  background-image: -webkit-linear-gradient(355deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);
-  background-image: -moz-linear-gradient(355deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);
-  background-image: -o-linear-gradient(355deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);
-  background-image: linear-gradient(355deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);
-*/
 }
 
 
