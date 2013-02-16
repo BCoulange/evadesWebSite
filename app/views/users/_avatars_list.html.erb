@@ -1,5 +1,6 @@
 <li class="span6">
-	<span class="thumbnail">
+	<span class="thumbnail fond-barrault">
+    <center>
 		<h4><%=user.surnom%></h4>
 		<%= link_to user do %>
 				<%= image_tag user.avatar.url(:medium) %>
@@ -8,6 +9,7 @@
   				<button class="btn btn-primary"><%= link_to 'Edit', edit_user_path(user) %></button>
   				<button class="btn btn-primary"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button>
       	</div>
+      </center>
     </span>
 </li>
 
