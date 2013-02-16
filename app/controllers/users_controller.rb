@@ -91,5 +91,9 @@ class UsersController < ApplicationController
     @spectacles = Spectacle.find(:all, :order => "start_time")
   end
 
+  # A définir et valider
+  # def promote_admin
+  #   current_user.update_attribute :admin, true
+  # end
 
 end

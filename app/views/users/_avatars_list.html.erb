@@ -8,9 +8,16 @@
   <% if user_signed_in? %>
 
       	<div class="btn-group">
+<% if (user == current_user) || current_user.try(:admin?)%>
   				<button class="btn btn-primary"><%= link_to 'Edit', edit_user_path(user) %></button>
+<% end %>
+<% if current_user.try(:admin?)%>
   				<button class="btn btn-primary"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<%end%>
+
       	</div>
+
+
 <% end %>
       </center>
     </span>
