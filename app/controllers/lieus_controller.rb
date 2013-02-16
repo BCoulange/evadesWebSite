@@ -9,8 +9,8 @@ class LieusController < ApplicationController
     @jsonGmaps = Lieu.all.to_gmaps4rails
 
     @jsonGmaps = Lieu.all.to_gmaps4rails do |lieu, marker|
- marker.infowindow render_to_string(:partial => "/lieus/infoWindow", :locals => { :lieu => lieu})
- marker.title "#{lieu.nom}"
+        marker.infowindow render_to_string(:partial => "/lieus/infoWindow", :locals => { :lieu => lieu})
+        marker.title "#{lieu.nom}"
 
   end
 
