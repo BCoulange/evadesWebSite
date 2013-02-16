@@ -25,16 +25,11 @@
 
 <%= render "lieus/show_adresse", :object => @lieu %>
 
-<h3>Ce spectacle a vu <%= @spectacle.users.count %> évadés : </h3>
-<table class="table table-striped table-bordered">
+<h3><%= @spectacle.users.count %> évadés pour ce spectacle: </h3>
 
-    <thead>
-<%= render "users/users_list_head" %>
-  </thead>
-<tbody>
-<%= render :partial=>"users/users_list", :collection =>@spectacle.users, :as => :user %>
-</tbody>
 
-</table>
-
+<div id="hint">	<div class="row-fluid">
+ <%= render :partial=>"users/small_avatar_list", :collection =>@spectacle.users, :as => :user %>
+</div></div>
+</br>
 <button class="btn btn-primary"><%= link_to "Télécharger l'affiche", @spectacle.affiche.url(:original, false) %></button>

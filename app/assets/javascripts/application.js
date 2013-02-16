@@ -17,3 +17,7 @@
 //= require best_in_place
 //= require ckeditor/init
 //= require_tree .
+
+jQuery( function($) {
+    $("#hint div").tooltip()
+});
