@@ -1,20 +1,21 @@
-<h1>Nos photos</h1>
+<div class="page-header"><h1>Nos photos</h1></div>
 
-
-	<% @photo_sets.each do |set| %>
-
-		 <ul class="thumbnails">
-		 	<%= link_to("photos/#{set.id}", :id => "#{set.id}") do %>
-		 <h4><%=set.title%></h4>
-		 <% flickr.photosets.getPhotos(:photoset_id => set.id).photo.sample(2).each do |p| %>
-  			<li class="span4">
-    				<div class="well"><%= image_tag "http://farm#{p.farm}.staticflickr.com/#{p.server}/#{p.id}_#{p.secret}.jpg", :class => "brand"%></div>
-                		<p><%= p.title %></p>
-
-	  		</li>
+<% @photo_sets.each do |set| %>
+	<div class="thumbnail well">
+		<%= link_to("photos/#{set.id}", :id => "#{set.id}") do %>
+			<h4><%=set.title%></h4>
+			<span class="row">
+				<ul class="thumbnails">
+<% flickr.photosets.getPhotos(:photoset_id => set.id).photo.sample(4).each do |p| %>
+					<li class="span3">
+						<%= image_tag "http://farm#{p.farm}.staticflickr.com/#{p.server}/#{p.id}_#{p.secret}.jpg", :class => "brand"%>
+				  	</li>
+<% end %>
+		 		</ul>
+		 	</span>	
  		<% end %>
- 		<% end %>
- 		</ul>
+	</div>
+
  	<br>
- 	<% end %>	
+ <% end %>	
 
