@@ -92,8 +92,11 @@ class UsersController < ApplicationController
   end
 
   # A définir et valider
-  # def promote_admin
-  #   current_user.update_attribute :admin, true
-  # end
+    
+    def promote_admin
+      @user = User.find(params[:id])
+      @user.update_attribute :admin, !@user.admin
+      redirect_to :back
+    end
 
 end

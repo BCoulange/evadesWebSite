@@ -51,7 +51,9 @@ EvadesWebSite::Application.routes.draw do
   end
 
 
-  resources :users, :path => "evades", :as => :users
+  resources :users, :path => "evades", :as => :users do 
+    get "promote_admin", :on => :member
+  end
 
 mount Ckeditor::Engine => "/ckeditor"
 

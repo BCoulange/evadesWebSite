@@ -5,6 +5,7 @@
 		<%= link_to user do %>
 				<%= image_tag user.avatar.url(:medium) %>
       	<% end%>
+      </br>
   <% if user_signed_in? %>
 
       	<div class="btn-group">
@@ -13,10 +14,18 @@
 <% end %>
 <% if current_user.try(:admin?)%>
   				<button class="btn btn-primary"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+          <% if user.try(:admin?)%>
+            <button class="btn btn-primary"><%= link_to 'Downgrade', promote_admin_user_path(user) %></button>
+          <% else %>
+            <button class="btn btn-primary"><%= link_to 'Promote admin', promote_admin_user_path(user) %></button>
+          <% end %>
+
 <%end%>
 
       	</div>
-
+<% if user.try(:admin?)%>
+<small>ADMIN</small>
+<%end%>
 
 <% end %>
       </center>
