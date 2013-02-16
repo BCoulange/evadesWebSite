@@ -29,16 +29,17 @@
 - [x] Gestion des news
 - [ ] Roles administrateur
 - [x] Changement des noms des routes (lieus, users)
-- [ ] Mise en forme globale
+- [x] Mise en forme globale
 - [ ] Rappel pour la com
 - [ ] Gestion de Facebook
 - [ ] Inclure les présentations d'évadés
 - [ ] gestion des Petits, papiers, flechages et autres ressources
-- [ ] Générateur de Flyer
+- [ ] Mettre en page affiche template et autres éléments d'admin
 
 ## v1.1
 - [ ] Résumés des réunions CA sur le site web
 - [ ] Envoi de mail du résumé
+- [ ] Générateur de Flyer
 
 
 # Liens 
