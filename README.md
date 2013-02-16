@@ -27,7 +27,7 @@
 - [x] Bouton « faire parti de la troupe »
 - [x] Formulaire de contact
 - [x] Gestion des news
-- [ ] Roles administrateur
+- [x] Roles administrateur
 - [x] Changement des noms des routes (lieus, users)
 - [x] Mise en forme globale
 - [ ] Rappel pour la com
