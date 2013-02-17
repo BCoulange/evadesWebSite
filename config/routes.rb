@@ -2,6 +2,9 @@ EvadesWebSite::Application.routes.draw do
 
 
 
+  resources :reunion_cas
+
+
   resources :cavales
 
 

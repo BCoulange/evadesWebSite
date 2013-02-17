@@ -1,0 +1,23 @@
+<h1>Listing reunion_cas</h1>
+
+<table>
+  <tr>
+    <th>Compterendu</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reunion_cas.each do |reunion_ca| %>
+  <tr>
+    <td><%= reunion_ca.compterendu %></td>
+    <td><%= link_to 'Show', reunion_ca %></td>
+    <td><%= link_to 'Edit', edit_reunion_ca_path(reunion_ca) %></td>
+    <td><%= link_to 'Destroy', reunion_ca, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Reunion ca', new_reunion_ca_path %>

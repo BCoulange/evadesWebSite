@@ -1,0 +1,24 @@
+<%= form_for(@reunion_ca) do |f| %>
+  <% if @reunion_ca.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reunion_ca.errors.count, "error") %> prohibited this reunion_ca from being saved:</h2>
+
+      <ul>
+      <% @reunion_ca.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :date %>
+    <%= datetime_select :reunion_ca, :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :compte_rendu %><br />
+    <%= f.text_area :compterendu, :class => "input-xxlarge" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

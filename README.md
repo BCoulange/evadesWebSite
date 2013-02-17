@@ -38,6 +38,7 @@
 - [ ] Inclure les présentations d'évadés
 - [ ] gestion des Petits, papiers, flechages et autres ressources
 - [ ] Mettre en page affiche template et autres éléments d'admin
+- [ ] Mettre mail et affiches en tache de fond
 
 ## v1.1
 - [ ] Résumés des réunions CA sur le site web
@@ -48,3 +49,6 @@
 # Liens 
 * Formulaire de contact léger : http://matharvard.ca/posts/2011/aug/22/contact-form-in-rails-3/
 * Gestion de Facebook : http://horserumble.com/creating-facebook-events-with-koala
+
+## retours
+* rayures trop présentes sur la home
