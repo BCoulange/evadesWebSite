@@ -227,9 +227,9 @@ def genATWithBloc
   @affiche_template.fond_with_blocs = file
   @affiche_template.save
 
-    send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
+#    send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
 
-#  redirect_to @affiche_template
+  redirect_to @affiche_template
 end
 
 def showFond

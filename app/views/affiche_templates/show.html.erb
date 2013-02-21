@@ -1,10 +1,10 @@
 <h1><%= @affiche_template.nom %></h1>
 
-
+<button class="btn btn-primary"><%= link_to "générer les blocs",genATWithBloc_affiche_template_path(@affiche_template)%></button>
 
 <span class="row">
   <span class="span6">
-    <%= image_tag @affiche_template.fond.url(:homePage) %>
+    <%= image_tag @affiche_template.fond_with_blocs.url(:showPage) %>
   </span>
   <span class="span6">
     <h3> Générateur d'affiches </h3>
