@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216204702) do
+ActiveRecord::Schema.define(:version => 20130221071702) do
 
   create_table "affiche_templates", :force => true do |t|
     t.integer  "teaserwidth"
@@ -26,13 +26,17 @@ ActiveRecord::Schema.define(:version => 20130216204702) do
     t.integer  "dhheigh"
     t.integer  "dhx"
     t.integer  "dhy"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.string   "fond_file_name"
     t.string   "fond_content_type"
     t.integer  "fond_file_size"
     t.datetime "fond_updated_at"
     t.string   "nom"
+    t.string   "fond_with_blocs_file_name"
+    t.string   "fond_with_blocs_content_type"
+    t.integer  "fond_with_blocs_file_size"
+    t.datetime "fond_with_blocs_updated_at"
   end
 
   create_table "cavales", :force => true do |t|
@@ -76,6 +80,13 @@ ActiveRecord::Schema.define(:version => 20130216204702) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "reunion_cas", :force => true do |t|
+    t.string   "compterendu"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.datetime "start_time"
   end
 
   create_table "spectacles", :force => true do |t|
