@@ -38,6 +38,8 @@
 - [ ] Inclure les présentations d'évadés
 - [ ] gestion des Petits, papiers, flechages et autres ressources
 - [ ] Mettre en page affiche template et autres éléments d'admin
+- [ ] Gros traitements asynchrones
+- [ ] BUG : on ne voit plus le nom sur la page spectacle
 
 ## v1.1
 - [ ] Résumés des réunions CA sur le site web
