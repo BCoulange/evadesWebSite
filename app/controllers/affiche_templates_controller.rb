@@ -152,6 +152,85 @@ return (nbPixByLetter / width * 10).to_i
 
 end
 
+def genATWithBloc
+#  attr_accessible  :lieuheigh, :lieuwidth, :lieux, :lieuy, :teaserheigh, :teaserwidth, :teaserx, :teasery
+
+  @affiche_template = AfficheTemplate.find(params[:id])
+
+  # ouverture de l'original pour calculer sa taille
+  orig = ImageList.new(@affiche_template.fond.url.split("?")[0])  
+  @or_x,@or_y = orig.columns,orig.rows
+  orig.destroy!
+
+  # ouverture de l'image a modifier
+  img = ImageList.new(@affiche_template.fond.url(:homePage).split("?")[0])
+
+  # calcul des coeffs ajustés
+  @dhx_i = ( @affiche_template.dhx.to_f / @or_x * img.columns ).to_i
+  @dhx_o = ( ( @affiche_template.dhx.to_f + @affiche_template.dhwidth )/ @or_x * img.columns ).to_i
+  @dhy_i = ( @affiche_template.dhy.to_f / @or_y * img.rows ).to_i
+  @dhy_o = ( ( @affiche_template.dhy.to_f + @affiche_template.dhheigh )/ @or_y * img.rows ).to_i
+  @dh_size=getPointSize("Date et Heure",img,0.9*@affiche_template.dhwidth.to_f / @or_x)
+
+  # Ajout du descriptif
+  txt = Draw.new
+  txt.pointsize = @dh_size
+  img.annotate(txt,@dhx_o-@dhx_i,@dhy_o-@dhy_i,@dhx_i,@dhy_i, "Date et Heure"){
+    txt.gravity = CenterGravity
+    txt.stroke = 'red'
+    txt.fill = 'transparent'
+    txt.font_weight = Magick::BoldWeight
+  }
+
+  @lieux_i = ( @affiche_template.lieux.to_f / @or_x * img.columns ).to_i
+  @lieux_o = ( ( @affiche_template.lieux.to_f + @affiche_template.lieuwidth )/ @or_x * img.columns ).to_i
+  @lieuy_i = ( @affiche_template.lieuy.to_f / @or_y * img.rows ).to_i
+  @lieuy_o = ( ( @affiche_template.lieuy.to_f + @affiche_template.lieuheigh )/ @or_y * img.rows ).to_i
+  @lieu_size=getPointSize("Lieu",img,0.9*@affiche_template.lieuwidth.to_f / @or_x)
+
+  # Ajout du descriptif
+  txt2 = Draw.new
+  txt2.pointsize = @lieu_size
+  img.annotate(txt2,@lieux_o-@lieux_i,@lieuy_o-@lieuy_i,@lieux_i,@lieuy_i, "Lieu"){
+    txt2.gravity = CenterGravity
+    txt2.stroke = 'red'
+    txt2.fill = 'transparent'
+    txt2.font_weight = Magick::BoldWeight
+  }
+
+  @teaserx_i = ( @affiche_template.teaserx.to_f / @or_x * img.columns ).to_i
+  @teaserx_o = ( ( @affiche_template.teaserx.to_f + @affiche_template.teaserwidth )/ @or_x * img.columns ).to_i
+  @teasery_i = ( @affiche_template.teasery.to_f / @or_y * img.rows ).to_i
+  @teasery_o = ( ( @affiche_template.teasery.to_f + @affiche_template.teaserheigh )/ @or_y * img.rows ).to_i
+  @teaser_size=getPointSize("Teaser",img,0.9*@affiche_template.teaserwidth.to_f / @or_x)
+
+  # Ajout du descriptif
+  txt3 = Draw.new
+  txt3.pointsize = @teaser_size
+  img.annotate(txt3,@teaserx_o-@teaserx_i,@teasery_o-@teasery_i,@teaserx_i,@teasery_i, "Teaser"){
+    txt3.gravity = CenterGravity
+    txt3.stroke = 'red'
+    txt3.fill = 'transparent'
+    txt3.font_weight = Magick::BoldWeight
+  }
+
+  rect = Draw.new
+  rect.stroke('red').stroke_width(1)
+  rect.fill('transparent')
+  rect.rectangle(@dhx_i,@dhy_i,@dhx_o,@dhy_o)
+  rect.rectangle(@lieux_i,@lieuy_i,@lieux_o,@lieuy_o)
+  rect.rectangle(@teaserx_i,@teasery_i,@teaserx_o,@teasery_o)
+  rect.draw(img)
+
+  file = Tempfile.new('my_picture')
+  img.flatten_images.write(file.path)
+  @affiche_template.fond_with_blocs = file
+  @affiche_template.save
+
+    send_data img.to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
+
+#  redirect_to @affiche_template
+end
 
 def showFond
   
