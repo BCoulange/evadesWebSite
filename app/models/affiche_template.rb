@@ -100,24 +100,24 @@ def genATWithBloc
 
 end
 
-def creerAffiche!(spectacle,teaser = nil)
+def creerAffiche!(spectacle,teaser = "")
 #    img.format = 'jpeg'
     file = Tempfile.new('my_picture')
-    creerRMAffiche(spectacle,teaser = nil).flatten_images.write(file.path)
+    creerRMAffiche(spectacle,teaser).flatten_images.write(file.path)
 
 	spectacle.update_attributes(:affiche => file)
 	spectacle.affiche.reprocess!
 
 end
 
-def creerAffiche(spectacle,teaser = nil)
-	    return creerRMAffiche(spectacle,teaser = nil)
+def creerAffiche(spectacle,teaser = "")
+	    return creerRMAffiche(spectacle,teaser)
 	end
 
 
 private
 
-  def creerRMAffiche(spectacle,teaser = nil)
+  def creerRMAffiche(spectacle,teaser = "")
   @lieu=Lieu.find(spectacle.lieu_id)
   lieuMessage="#{@lieu.nom}\n#{@lieu.street}\n#{@lieu.city}"
   frenchWeekdays = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
@@ -140,8 +140,9 @@ private
   }
 
   # Ajout du teaser
-  unless (spectacle.teaser.nil? || spectacle.teaser.empty? ) && teaser == nil then
-  	if teaser == nil then @teaser_to_use = spectacle.teaser else @teaser_to_use = teaser end
+  unless spectacle.teaser.empty? && teaser.empty? then
+  	@teaser_to_use = spectacle.teaser
+  	@teaser_to_use = teaser unless teaser.empty?
 
     @pointsize=getPointSizeBySurface(@teaser_to_use,img,teaserwidth.to_f / img.columns.to_f,teaserheigh.to_f / img.rows.to_f) 
 
