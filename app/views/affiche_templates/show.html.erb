@@ -11,7 +11,7 @@
   </span>
   <span class="span6">
     <h3> Générateur d'affiches </h3>
-    <%= form_tag(showFond_affiche_template_path(@affiche_template), :method => :get) do %>
+    <%= form_tag(genAffiche_affiche_template_path(@affiche_template), :method => :get) do %>
       <div class="field">
       <%= label_tag "Teaser" %>
       <%= text_area_tag "teaser" %>
@@ -26,6 +26,9 @@
       <%= submit_tag "Générer!", :class => "btn btn-primary"%>
 
     <% end %>
+
+
+    
   </span>
 
 </span>

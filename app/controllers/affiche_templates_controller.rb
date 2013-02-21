@@ -114,6 +114,15 @@ return lines
 
 end
 
+def genAffiche
+  @spectacle=Spectacle.find_by_titre(params[:Spectacle])
+  if(params[:Ecraser]) then
+      @affiche_template .creerAffiche!(@spectacle)
+      redirect_to @spectacle
+  else
+      send_data @affiche_template.creerAffiche(@spectacle).to_blob, :stream => 'false', :filename => 'test.jpg', :type => 'image/jpeg', :disposition => 'inline'
+  end
+end
 
 def getPointSizeBySurface(texte,img,sizePortionX,sizePortionY) 
 

@@ -60,7 +60,10 @@ before_filter :get_users
 
     unless  @spectacle.affiche.file? then
       @spectacle.save
-      redirect_to showFond_affiche_template_path(AfficheTemplate.all[-1], {:Spectacle => @spectacle.titre, :Ecraser => "1"}) 
+      AfficheTemplate.all[-1].creerAffiche!(@spectacle)
+
+
+#      redirect_to @spectacle
     else
 
       respond_to do |format|
