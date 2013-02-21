@@ -1,0 +1,36 @@
+<h1> Update dh </h1>
+<% content_for(:head) do %>
+
+<%= stylesheet_link_tag "jquery.Jcrop" %>
+<%= javascript_include_tag "jquery.Jcrop.min" %>
+    <script type="text/javascript" charset="utf-8">
+    $(function() {
+ 	    $('#cropbox').Jcrop({
+		 	<% @iratio = @affiche_template.fond_geometry(:homePage).width.to_f / @affiche_template.fond_geometry(:original).width.to_f%>
+
+	 			 			 	
+ 	   		onChange: update_crop,
+       		onSelect: update_crop,
+    		setSelect: [<%= (@affiche_template.dhx.to_f*@iratio).to_i%>,<%= (@affiche_template.dhy.to_f*@iratio).to_i%>,<%= ((@affiche_template.dhx.to_f+@affiche_template.dhwidth)*@iratio).to_i%>,<%= ((@affiche_template.dhy.to_f+@affiche_template.dhheigh)*@iratio).to_i%>]
+	  	});
+	});
+
+	function update_crop(coords) {
+		 var ratio = <%= @affiche_template.fond_geometry(:original).width %> / <%= @affiche_template.fond_geometry(:homePage).width %>;
+ 	  	$("#dhx").val(Math.round(coords.x * ratio));
+  		$("#dhy").val(Math.round(coords.y * ratio));
+  		$("#dhwidth").val(Math.round(coords.w * ratio));
+  		$("#dhheigh").val(Math.round(coords.h * ratio)); }
+
+    </script>
+
+<% end %>
+
+<%= image_tag @affiche_template.fond.url(:homePage), :id => "cropbox" %>
+
+<%= form_for @affiche_template do |f| %>
+  <% [:dhx, :dhy, :dhwidth, :dhheigh].each do |attribute| %>
+    <%= f.hidden_field attribute, :id => attribute %>
+  <% end %>
+  <p><%= f.submit "Mettre à jour", :class => "btn btn-primary" %></p>
+<% end %>

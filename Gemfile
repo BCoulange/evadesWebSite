@@ -67,7 +67,7 @@ gem 'devise'
 # pagination
 gem 'will_paginate', '~> 3.0'
 
-
+# crop
 
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'

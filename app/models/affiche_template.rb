@@ -6,4 +6,11 @@ class AfficheTemplate < ActiveRecord::Base
   has_attached_file :fond_with_blocs, :styles => { :showPage => "700x990>" }	
   has_attached_file :fond, :styles => { :thumb => "100x100>", :homePage => "350x495>", :showPage => "700x990>" }
 
+ 
+  
+  def fond_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(fond.url(style))
+  end
+
 end

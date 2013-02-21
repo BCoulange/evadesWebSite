@@ -34,6 +34,7 @@ EvadesWebSite::Application.routes.draw do
   resources :affiche_templates do
     get "showFond", :on => :member
     get "genATWithBloc", :on => :member
+    get "update_dh", :on => :member
   end
 
 

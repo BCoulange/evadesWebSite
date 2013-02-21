@@ -37,4 +37,5 @@ EvadesWebSite::Application.configure do
 
   # For paperclip
   Paperclip.options[:command_path] = "/usr/local/bin/"
+
 end

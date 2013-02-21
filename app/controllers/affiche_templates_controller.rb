@@ -152,6 +152,10 @@ return (nbPixByLetter / width * 10).to_i
 
 end
 
+def update_dh
+    @affiche_template = AfficheTemplate.find(params[:id])
+end
+
 def genATWithBloc
 #  attr_accessible  :lieuheigh, :lieuwidth, :lieux, :lieuy, :teaserheigh, :teaserwidth, :teaserx, :teasery
 
