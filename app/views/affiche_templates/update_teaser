@@ -1,0 +1,9 @@
+<h1> Update Lieu </h1>
+<%= render :partial => "jcrop_updater", :locals => { :lieux => @affiche_template.teaserx, :lieuy => @affiche_template.teasery, :lieuwidth => @affiche_template.teaserwidth, :lieuheigh => @affiche_template.teaserheigh } %>
+
+<%= form_for @affiche_template do |f| %>
+  <% [[:teaserx,:lieux], [:teasery,:lieuy], [:teaserwidth,:lieuwidth], [:teaserheigh,:lieuheigh]].each do |attribute,id| %>
+    <%= f.hidden_field attribute, :id => id %>
+  <% end %>
+  <p><%= f.submit "Mettre à jour", :class => "btn btn-primary" %></p>
+<% end %>

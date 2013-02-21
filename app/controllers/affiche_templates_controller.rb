@@ -157,6 +157,10 @@ def update_dh
     @affiche_template = AfficheTemplate.find(params[:id])
 end
 
+def update_lieu
+    @affiche_template = AfficheTemplate.find(params[:id])
+end
+
 # def genATWithBloc
 # #  attr_accessible  :lieuheigh, :lieuwidth, :lieux, :lieuy, :teaserheigh, :teaserwidth, :teaserx, :teasery
 

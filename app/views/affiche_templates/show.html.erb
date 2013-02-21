@@ -1,6 +1,9 @@
 <h1><%= @affiche_template.nom %></h1>
 
-<button class="btn btn-primary"><%= link_to "générer les blocs",genATWithBloc_affiche_template_path(@affiche_template)%></button>
+<button class="btn btn-primary"><%= link_to "Positionner la date",update_dh_affiche_template_path(@affiche_template)%></button>
+<button class="btn btn-primary"><%= link_to "Positionner le lieu",update_lieu_affiche_template_path(@affiche_template)%></button>
+<button class="btn btn-primary"><%= link_to "Positionner le teaser",update_teaser_affiche_template_path(@affiche_template)%></button>
+<button class="btn btn-primary"><%= link_to "A l'ancienne!",edit_affiche_template_path(@affiche_template)%></button>
 
 <span class="row">
   <span class="span6">
@@ -20,9 +23,8 @@
       <%= check_box_tag "Ecraser" %><%= label_tag "Ecraser l'affiche du spectacle?" %>
       
     </div>
-    <div class="field">
-      <%= submit_tag "Générer!"%>
-    </div>
+      <%= submit_tag "Générer!", :class => "btn btn-primary"%>
+
     <% end %>
   </span>
 

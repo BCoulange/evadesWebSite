@@ -35,6 +35,8 @@ EvadesWebSite::Application.routes.draw do
     get "showFond", :on => :member
     get "genATWithBloc", :on => :member
     get "update_dh", :on => :member
+    get "update_lieu", :on => :member
+    get "update_teaser", :on => :member
   end
 
 
