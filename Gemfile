@@ -29,6 +29,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -67,7 +68,9 @@ gem 'devise'
 # pagination
 gem 'will_paginate', '~> 3.0'
 
-# crop
+# 
+
+
 
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'

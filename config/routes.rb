@@ -37,6 +37,7 @@ EvadesWebSite::Application.routes.draw do
     get "update_dh", :on => :member
     get "update_lieu", :on => :member
     get "update_teaser", :on => :member
+    get "update_drag", :on => :member    
   end
 
 

@@ -18,6 +18,3 @@
 //= require ckeditor/init
 //= require_tree .
 
-jQuery( function($) {
-    $("#hint div").tooltip()
-});
