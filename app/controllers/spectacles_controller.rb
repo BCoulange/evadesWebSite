@@ -61,10 +61,10 @@ before_filter :get_users
     unless  @spectacle.affiche.file? then
       @spectacle.save
       AfficheTemplate.all[-1].creerAffiche!(@spectacle)
-
+    end
 
 #      redirect_to @spectacle
-    else
+    
 
       respond_to do |format|
         if @spectacle.save
@@ -75,7 +75,7 @@ before_filter :get_users
           format.json { render json: @spectacle.errors, status: :unprocessable_entity }
         end
       end
-    end
+    
   end
 
   # PUT /spectacles/1
