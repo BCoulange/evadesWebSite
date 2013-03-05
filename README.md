@@ -39,7 +39,7 @@
 - [ ] gestion des Petits, papiers, flechages et autres ressources
 - [ ] Mettre en page affiche template et autres éléments d'admin
 - [ ] Gros traitements asynchrones
-- [ ] BUG : on ne voit plus le nom sur la page spectacle
+- [x] BUG : on ne voit plus le nom sur la page spectacle
 - [ ] Inclure le titre sur spectacle sur l'affiche
 
 
@@ -48,6 +48,7 @@
 - [ ] Envoi de mail du résumé
 - [ ] Générateur de Flyer
 - [ ] Relation entre affiche template et affiche (histoire de pouvoir générer après corrections)
+- [ ] Rajouter dans la template le logo et la lune
 
 # Liens 
 * Formulaire de contact léger : http://matharvard.ca/posts/2011/aug/22/contact-form-in-rails-3/
