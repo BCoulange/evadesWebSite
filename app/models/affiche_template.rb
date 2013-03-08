@@ -114,6 +114,8 @@ def creerAffiche(spectacle,teaser = "")
 	    return creerRMAffiche(spectacle,teaser)
 	end
 
+  handle_asynchronously :creerAffiche!
+  handle_asynchronously :creerAffiche
 
 private
 

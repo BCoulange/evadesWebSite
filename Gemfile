@@ -68,7 +68,8 @@ gem 'devise'
 # pagination
 gem 'will_paginate', '~> 3.0'
 
-# 
+# delayed jobs
+gem 'delayed_job_active_record'
 
 
 
